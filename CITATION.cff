@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or refer to its results, please cite it using
+  the metadata below.
+title: "quantum-security-lab"
+abstract: >-
+  Research and engineering lab investigating the security and robustness
+  properties of quantum and hybrid quantum-classical machine learning
+  systems, including noise robustness and adversarial robustness of
+  variational quantum classifiers.
+type: software
+authors:
+  - family-names: "Reers"
+    given-names: "Volker"
+    # orcid: "https://orcid.org/xxxx-xxxx-xxxx-xxxx"
+repository-code: "https://github.com/Vile13/quantum-security-lab"
+license: Apache-2.0
+version: 0.1.0
+date-released: "2026-08-05"
+keywords:
+  - quantum machine learning
+  - quantum computing security
+  - adversarial robustness
+  - noise robustness
+  - Qiskit
