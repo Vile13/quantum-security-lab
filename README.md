@@ -19,8 +19,8 @@ Each module follows the same structure:
 
 | Module | Status | Question |
 |---|---|---|
-| [`qml-noise-robustness`](./qml-noise-robustness) | 🚧 in progress | How does classification accuracy degrade under realistic Qiskit Aer noise models (depolarizing, amplitude damping, thermal relaxation, readout error), and does circuit depth trade off expressibility against noise resilience? |
-| [`qml-adversarial-attacks`](./qml-adversarial-attacks) | 📋 planned | Can small, targeted perturbations to classical input data or encoded quantum states flip QML classifier decisions, and how does this compare to classical adversarial robustness? |
+| [`qml-noise-robustness`](./qml-noise-robustness) | ✅ v1 results | How does classification accuracy degrade under realistic Qiskit Aer noise models (depolarizing, amplitude damping, thermal relaxation, readout error), and does circuit depth trade off expressibility against noise resilience? |
+| `qml-adversarial-attacks` | 📋 planned | Can small, targeted perturbations to classical input data or encoded quantum states flip QML classifier decisions, and how does this compare to classical adversarial robustness? |
 | `circuit-parameter-tampering` | 📋 planned (roadmap) | What happens if variational parameters are tampered with post-training (supply-chain analogy for quantum models)? |
 | `quantum-artificial-life` | 💡 idea (roadmap) | Emergent behavior in evolutionary/quantum artificial life systems — exploratory. |
 
@@ -39,14 +39,28 @@ All experiments run against local simulators or explicitly self-owned test setup
 ```
 quantum-security-lab/
 ├── qml-noise-robustness/     # module 1 — see its own README
-├── qml-adversarial-attacks/  # module 2 — planned
-├── docs/                     # architecture notes, diagrams
+│   ├── src/                  #   data, model, noise models, sweep, plots
+│   ├── tests/                #   invariants that would otherwise fail silently
+│   ├── results/              #   committed results and figures
+│   └── run_experiment.py     #   entry point
 └── README.md                 # this file
 ```
 
+## Findings so far
+
+**`qml-noise-robustness`** — at device-like error rates, test accuracy showed
+**no degradation at any circuit depth**, while the model's output probabilities
+shifted measurably, and that shift grew with every entangling gate added.
+Readout error was the exception: flat in depth, because it applies once at
+measurement rather than accumulating per gate. The practical consequence is
+that an acceptance test built on accuracy alone would pass a model whose
+decision confidence has already eroded substantially.
+[Details, method and limitations →](./qml-noise-robustness)
+
 ## Roadmap
 
-- [ ] `qml-noise-robustness` — baseline model, noise sweep, backend-style comparison, results writeup
+- [x] `qml-noise-robustness` — baseline model, noise sweep, results writeup
+- [ ] `qml-noise-robustness` v2 — error bars across seeds, mitigation comparison
 - [ ] `qml-adversarial-attacks` — perturbation attacks on encoded inputs, comparison to classical adversarial robustness
 - [ ] Architecture diagram + short demo
 - [ ] CI (linting, unit tests) via GitHub Actions

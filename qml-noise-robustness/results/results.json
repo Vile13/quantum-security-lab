@@ -1,0 +1,997 @@
+{
+  "config": {
+    "seed": 42,
+    "layer_counts": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "train_shots": 512,
+    "eval_shots": 4096,
+    "max_iterations": 600,
+    "n_restarts": 3,
+    "n_train": 80,
+    "n_test": 80
+  },
+  "training": [
+    {
+      "layers": 2,
+      "weights": [
+        -0.37149847077756143,
+        -0.44990161523956684,
+        0.12679679174583922,
+        1.5900577351341458,
+        0.6645840194810285,
+        0.16853979338292616,
+        -0.5503793306567478,
+        -0.46042591777271463,
+        0.3348950991800136,
+        0.2064899119309532,
+        1.0061807502319804,
+        -0.20823927810905762
+      ],
+      "final_loss": 0.28073226857869804,
+      "iterations": 496,
+      "circuit_depth": 7,
+      "two_qubit_gates": 2,
+      "train_accuracy": 0.8875,
+      "seconds": 57.50761383998906,
+      "restart_losses": [
+        0.46919183319428104,
+        0.43499212389221953,
+        0.28073226857869804
+      ]
+    },
+    {
+      "layers": 3,
+      "weights": [
+        -0.7119930199461423,
+        -0.08717095875503712,
+        0.05202769046039136,
+        1.369124368450707,
+        -1.4569735656125296,
+        0.03629631149478972,
+        -1.0575075537918028,
+        0.33297981330398735,
+        0.17987291641053801,
+        1.4282069848267043,
+        1.7615793843338008,
+        0.15253689091665906,
+        1.5399208261352824,
+        0.16256681037986495,
+        0.3393366896632494,
+        -0.7925633034146272,
+        0.9108717275122452,
+        0.887053076470115
+      ],
+      "final_loss": 0.17452845587109733,
+      "iterations": 779,
+      "circuit_depth": 10,
+      "two_qubit_gates": 3,
+      "train_accuracy": 0.975,
+      "seconds": 65.6645920459996,
+      "restart_losses": [
+        0.24472728278530642,
+        0.26027911239744383,
+        0.17452845587109733
+      ]
+    },
+    {
+      "layers": 4,
+      "weights": [
+        0.24269933891579581,
+        -0.44179659136130023,
+        -0.5768950525629574,
+        0.6049476812400751,
+        0.5086185488345784,
+        0.04191932342301163,
+        1.0098737781558778,
+        0.21028658677540837,
+        -0.3624336732292216,
+        0.3850058165188773,
+        1.1600561565566296,
+        1.4284552835458275,
+        -0.9617547316120987,
+        0.1447249698402231,
+        0.25426804442683304,
+        -0.9410694023066196,
+        0.5581593473410683,
+        0.8690988703726248,
+        1.0827495137378147,
+        -0.18769000834682312,
+        0.10951274977415702,
+        1.1119912036773343,
+        0.07327377542418195,
+        0.8737909480846044
+      ],
+      "final_loss": 0.18210907366287313,
+      "iterations": 1036,
+      "circuit_depth": 13,
+      "two_qubit_gates": 4,
+      "train_accuracy": 0.9375,
+      "seconds": 104.30854317604098,
+      "restart_losses": [
+        0.24179756301471594,
+        0.18210907366287313,
+        0.2328424520121292
+      ]
+    },
+    {
+      "layers": 5,
+      "weights": [
+        -0.12554355452434265,
+        0.20074102724399237,
+        0.38551736737541503,
+        1.5705783734944476,
+        -0.24829930206409181,
+        1.3143658066382156,
+        -0.6608461869061893,
+        -0.7346543809781936,
+        1.19416115801719,
+        0.31351473217317866,
+        1.179365398796954,
+        0.52082595614875,
+        0.753256220156362,
+        0.5750683868981727,
+        0.1783373474250941,
+        -0.7252756828108913,
+        1.1839863198410356,
+        1.5819881170397725,
+        0.25578114151133646,
+        -0.7830831515301031,
+        -0.4287246532038666,
+        0.9638269662149048,
+        -1.0795752730990316,
+        0.42687537159366296,
+        -0.6502534991306652,
+        -0.4713746619088485,
+        0.7597523835254733,
+        0.03422052123953902,
+        0.5560610125697998,
+        0.511638843130979
+      ],
+      "final_loss": 0.22933267566944177,
+      "iterations": 1219,
+      "circuit_depth": 16,
+      "two_qubit_gates": 5,
+      "train_accuracy": 0.9125,
+      "seconds": 125.62925471697235,
+      "restart_losses": [
+        0.2402487674171733,
+        0.23435208406459998,
+        0.22933267566944177
+      ]
+    }
+  ],
+  "evaluation": [
+    {
+      "layers": 2,
+      "label": "ideal",
+      "mechanism": "none",
+      "strength": 0.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.0005",
+      "mechanism": "depolarizing",
+      "strength": 0.0005,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0039825439453125
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.001",
+      "mechanism": "depolarizing",
+      "strength": 0.001,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.007965087890625
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.002",
+      "mechanism": "depolarizing",
+      "strength": 0.002,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0161041259765625
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.005",
+      "mechanism": "depolarizing",
+      "strength": 0.005,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0407440185546875
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.01",
+      "mechanism": "depolarizing",
+      "strength": 0.01,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0787017822265625
+    },
+    {
+      "layers": 2,
+      "label": "depolarizing p=0.02",
+      "mechanism": "depolarizing",
+      "strength": 0.02,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.143243408203125
+    },
+    {
+      "layers": 2,
+      "label": "amplitude damping g=0.001",
+      "mechanism": "amplitude_damping",
+      "strength": 0.001,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.00164794921875
+    },
+    {
+      "layers": 2,
+      "label": "amplitude damping g=0.005",
+      "mechanism": "amplitude_damping",
+      "strength": 0.005,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0074127197265625
+    },
+    {
+      "layers": 2,
+      "label": "amplitude damping g=0.01",
+      "mechanism": "amplitude_damping",
+      "strength": 0.01,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0150299072265625
+    },
+    {
+      "layers": 2,
+      "label": "amplitude damping g=0.02",
+      "mechanism": "amplitude_damping",
+      "strength": 0.02,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0298095703125
+    },
+    {
+      "layers": 2,
+      "label": "amplitude damping g=0.05",
+      "mechanism": "amplitude_damping",
+      "strength": 0.05,
+      "test_accuracy": 0.7875,
+      "accuracy_drop": 0.025000000000000022,
+      "mean_abs_proba_shift": 0.0714935302734375
+    },
+    {
+      "layers": 2,
+      "label": "thermal T1=50us",
+      "mechanism": "thermal_relaxation",
+      "strength": 1.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0040924072265625
+    },
+    {
+      "layers": 2,
+      "label": "thermal T1=25us",
+      "mechanism": "thermal_relaxation",
+      "strength": 2.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0080474853515625
+    },
+    {
+      "layers": 2,
+      "label": "thermal T1=10us",
+      "mechanism": "thermal_relaxation",
+      "strength": 5.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0200653076171875
+    },
+    {
+      "layers": 2,
+      "label": "thermal T1=5us",
+      "mechanism": "thermal_relaxation",
+      "strength": 10.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0396636962890625
+    },
+    {
+      "layers": 2,
+      "label": "thermal T1=2us",
+      "mechanism": "thermal_relaxation",
+      "strength": 25.0,
+      "test_accuracy": 0.7625,
+      "accuracy_drop": 0.050000000000000044,
+      "mean_abs_proba_shift": 0.0913360595703125
+    },
+    {
+      "layers": 2,
+      "label": "readout p=0.005",
+      "mechanism": "readout",
+      "strength": 0.005,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0032989501953125
+    },
+    {
+      "layers": 2,
+      "label": "readout p=0.01",
+      "mechanism": "readout",
+      "strength": 0.01,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0064910888671875
+    },
+    {
+      "layers": 2,
+      "label": "readout p=0.02",
+      "mechanism": "readout",
+      "strength": 0.02,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0131988525390625
+    },
+    {
+      "layers": 2,
+      "label": "readout p=0.05",
+      "mechanism": "readout",
+      "strength": 0.05,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0330291748046875
+    },
+    {
+      "layers": 2,
+      "label": "readout p=0.1",
+      "mechanism": "readout",
+      "strength": 0.1,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0670654296875
+    },
+    {
+      "layers": 2,
+      "label": "device-like composite",
+      "mechanism": "composite",
+      "strength": 1.0,
+      "test_accuracy": 0.8125,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.026702880859375
+    },
+    {
+      "layers": 3,
+      "label": "ideal",
+      "mechanism": "none",
+      "strength": 0.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.0005",
+      "mechanism": "depolarizing",
+      "strength": 0.0005,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0061920166015625
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.001",
+      "mechanism": "depolarizing",
+      "strength": 0.001,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0124420166015625
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.002",
+      "mechanism": "depolarizing",
+      "strength": 0.002,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.02425537109375
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.005",
+      "mechanism": "depolarizing",
+      "strength": 0.005,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0579742431640625
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.01",
+      "mechanism": "depolarizing",
+      "strength": 0.01,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.1081878662109375
+    },
+    {
+      "layers": 3,
+      "label": "depolarizing p=0.02",
+      "mechanism": "depolarizing",
+      "strength": 0.02,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.1859130859375
+    },
+    {
+      "layers": 3,
+      "label": "amplitude damping g=0.001",
+      "mechanism": "amplitude_damping",
+      "strength": 0.001,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0024993896484375
+    },
+    {
+      "layers": 3,
+      "label": "amplitude damping g=0.005",
+      "mechanism": "amplitude_damping",
+      "strength": 0.005,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0115936279296875
+    },
+    {
+      "layers": 3,
+      "label": "amplitude damping g=0.01",
+      "mechanism": "amplitude_damping",
+      "strength": 0.01,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0229766845703125
+    },
+    {
+      "layers": 3,
+      "label": "amplitude damping g=0.02",
+      "mechanism": "amplitude_damping",
+      "strength": 0.02,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0444854736328125
+    },
+    {
+      "layers": 3,
+      "label": "amplitude damping g=0.05",
+      "mechanism": "amplitude_damping",
+      "strength": 0.05,
+      "test_accuracy": 0.9125,
+      "accuracy_drop": 0.03749999999999998,
+      "mean_abs_proba_shift": 0.1002227783203125
+    },
+    {
+      "layers": 3,
+      "label": "thermal T1=50us",
+      "mechanism": "thermal_relaxation",
+      "strength": 1.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0067779541015625
+    },
+    {
+      "layers": 3,
+      "label": "thermal T1=25us",
+      "mechanism": "thermal_relaxation",
+      "strength": 2.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.013201904296875
+    },
+    {
+      "layers": 3,
+      "label": "thermal T1=10us",
+      "mechanism": "thermal_relaxation",
+      "strength": 5.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0321136474609375
+    },
+    {
+      "layers": 3,
+      "label": "thermal T1=5us",
+      "mechanism": "thermal_relaxation",
+      "strength": 10.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0604248046875
+    },
+    {
+      "layers": 3,
+      "label": "thermal T1=2us",
+      "mechanism": "thermal_relaxation",
+      "strength": 25.0,
+      "test_accuracy": 0.9,
+      "accuracy_drop": 0.04999999999999993,
+      "mean_abs_proba_shift": 0.1303009033203125
+    },
+    {
+      "layers": 3,
+      "label": "readout p=0.005",
+      "mechanism": "readout",
+      "strength": 0.005,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.003424072265625
+    },
+    {
+      "layers": 3,
+      "label": "readout p=0.01",
+      "mechanism": "readout",
+      "strength": 0.01,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.006597900390625
+    },
+    {
+      "layers": 3,
+      "label": "readout p=0.02",
+      "mechanism": "readout",
+      "strength": 0.02,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0133636474609375
+    },
+    {
+      "layers": 3,
+      "label": "readout p=0.05",
+      "mechanism": "readout",
+      "strength": 0.05,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.033709716796875
+    },
+    {
+      "layers": 3,
+      "label": "readout p=0.1",
+      "mechanism": "readout",
+      "strength": 0.1,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.06768798828125
+    },
+    {
+      "layers": 3,
+      "label": "device-like composite",
+      "mechanism": "composite",
+      "strength": 1.0,
+      "test_accuracy": 0.95,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0342010498046875
+    },
+    {
+      "layers": 4,
+      "label": "ideal",
+      "mechanism": "none",
+      "strength": 0.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.0005",
+      "mechanism": "depolarizing",
+      "strength": 0.0005,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.008807373046875
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.001",
+      "mechanism": "depolarizing",
+      "strength": 0.001,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0175445556640625
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.002",
+      "mechanism": "depolarizing",
+      "strength": 0.002,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.034344482421875
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.005",
+      "mechanism": "depolarizing",
+      "strength": 0.005,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.08094482421875
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.01",
+      "mechanism": "depolarizing",
+      "strength": 0.01,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.1464141845703125
+    },
+    {
+      "layers": 4,
+      "label": "depolarizing p=0.02",
+      "mechanism": "depolarizing",
+      "strength": 0.02,
+      "test_accuracy": 0.9,
+      "accuracy_drop": -0.012500000000000067,
+      "mean_abs_proba_shift": 0.2397125244140625
+    },
+    {
+      "layers": 4,
+      "label": "amplitude damping g=0.001",
+      "mechanism": "amplitude_damping",
+      "strength": 0.001,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.00311279296875
+    },
+    {
+      "layers": 4,
+      "label": "amplitude damping g=0.005",
+      "mechanism": "amplitude_damping",
+      "strength": 0.005,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.014398193359375
+    },
+    {
+      "layers": 4,
+      "label": "amplitude damping g=0.01",
+      "mechanism": "amplitude_damping",
+      "strength": 0.01,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0278045654296875
+    },
+    {
+      "layers": 4,
+      "label": "amplitude damping g=0.02",
+      "mechanism": "amplitude_damping",
+      "strength": 0.02,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0534027099609375
+    },
+    {
+      "layers": 4,
+      "label": "amplitude damping g=0.05",
+      "mechanism": "amplitude_damping",
+      "strength": 0.05,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.012499999999999956,
+      "mean_abs_proba_shift": 0.1162750244140625
+    },
+    {
+      "layers": 4,
+      "label": "thermal T1=50us",
+      "mechanism": "thermal_relaxation",
+      "strength": 1.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0088775634765625
+    },
+    {
+      "layers": 4,
+      "label": "thermal T1=25us",
+      "mechanism": "thermal_relaxation",
+      "strength": 2.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.01717529296875
+    },
+    {
+      "layers": 4,
+      "label": "thermal T1=10us",
+      "mechanism": "thermal_relaxation",
+      "strength": 5.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0407928466796875
+    },
+    {
+      "layers": 4,
+      "label": "thermal T1=5us",
+      "mechanism": "thermal_relaxation",
+      "strength": 10.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.075830078125
+    },
+    {
+      "layers": 4,
+      "label": "thermal T1=2us",
+      "mechanism": "thermal_relaxation",
+      "strength": 25.0,
+      "test_accuracy": 0.85,
+      "accuracy_drop": 0.03749999999999998,
+      "mean_abs_proba_shift": 0.1540313720703125
+    },
+    {
+      "layers": 4,
+      "label": "readout p=0.005",
+      "mechanism": "readout",
+      "strength": 0.005,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.00361328125
+    },
+    {
+      "layers": 4,
+      "label": "readout p=0.01",
+      "mechanism": "readout",
+      "strength": 0.01,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0072540283203125
+    },
+    {
+      "layers": 4,
+      "label": "readout p=0.02",
+      "mechanism": "readout",
+      "strength": 0.02,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.014495849609375
+    },
+    {
+      "layers": 4,
+      "label": "readout p=0.05",
+      "mechanism": "readout",
+      "strength": 0.05,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0363494873046875
+    },
+    {
+      "layers": 4,
+      "label": "readout p=0.1",
+      "mechanism": "readout",
+      "strength": 0.1,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.073150634765625
+    },
+    {
+      "layers": 4,
+      "label": "device-like composite",
+      "mechanism": "composite",
+      "strength": 1.0,
+      "test_accuracy": 0.8875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0415985107421875
+    },
+    {
+      "layers": 5,
+      "label": "ideal",
+      "mechanism": "none",
+      "strength": 0.0,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.0005",
+      "mechanism": "depolarizing",
+      "strength": 0.0005,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0105377197265625
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.001",
+      "mechanism": "depolarizing",
+      "strength": 0.001,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.02083740234375
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.002",
+      "mechanism": "depolarizing",
+      "strength": 0.002,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.040216064453125
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.005",
+      "mechanism": "depolarizing",
+      "strength": 0.005,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0922393798828125
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.01",
+      "mechanism": "depolarizing",
+      "strength": 0.01,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.1616790771484375
+    },
+    {
+      "layers": 5,
+      "label": "depolarizing p=0.02",
+      "mechanism": "depolarizing",
+      "strength": 0.02,
+      "test_accuracy": 0.9,
+      "accuracy_drop": -0.025000000000000022,
+      "mean_abs_proba_shift": 0.24954833984375
+    },
+    {
+      "layers": 5,
+      "label": "amplitude damping g=0.001",
+      "mechanism": "amplitude_damping",
+      "strength": 0.001,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0042205810546875
+    },
+    {
+      "layers": 5,
+      "label": "amplitude damping g=0.005",
+      "mechanism": "amplitude_damping",
+      "strength": 0.005,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0198455810546875
+    },
+    {
+      "layers": 5,
+      "label": "amplitude damping g=0.01",
+      "mechanism": "amplitude_damping",
+      "strength": 0.01,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0387451171875
+    },
+    {
+      "layers": 5,
+      "label": "amplitude damping g=0.02",
+      "mechanism": "amplitude_damping",
+      "strength": 0.02,
+      "test_accuracy": 0.8625,
+      "accuracy_drop": 0.012499999999999956,
+      "mean_abs_proba_shift": 0.0725555419921875
+    },
+    {
+      "layers": 5,
+      "label": "amplitude damping g=0.05",
+      "mechanism": "amplitude_damping",
+      "strength": 0.05,
+      "test_accuracy": 0.825,
+      "accuracy_drop": 0.050000000000000044,
+      "mean_abs_proba_shift": 0.15462646484375
+    },
+    {
+      "layers": 5,
+      "label": "thermal T1=50us",
+      "mechanism": "thermal_relaxation",
+      "strength": 1.0,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.011810302734375
+    },
+    {
+      "layers": 5,
+      "label": "thermal T1=25us",
+      "mechanism": "thermal_relaxation",
+      "strength": 2.0,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.023419189453125
+    },
+    {
+      "layers": 5,
+      "label": "thermal T1=10us",
+      "mechanism": "thermal_relaxation",
+      "strength": 5.0,
+      "test_accuracy": 0.8625,
+      "accuracy_drop": 0.012499999999999956,
+      "mean_abs_proba_shift": 0.0555023193359375
+    },
+    {
+      "layers": 5,
+      "label": "thermal T1=5us",
+      "mechanism": "thermal_relaxation",
+      "strength": 10.0,
+      "test_accuracy": 0.8375,
+      "accuracy_drop": 0.03749999999999998,
+      "mean_abs_proba_shift": 0.10081787109375
+    },
+    {
+      "layers": 5,
+      "label": "thermal T1=2us",
+      "mechanism": "thermal_relaxation",
+      "strength": 25.0,
+      "test_accuracy": 0.8,
+      "accuracy_drop": 0.07499999999999996,
+      "mean_abs_proba_shift": 0.1961273193359375
+    },
+    {
+      "layers": 5,
+      "label": "readout p=0.005",
+      "mechanism": "readout",
+      "strength": 0.005,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.00328369140625
+    },
+    {
+      "layers": 5,
+      "label": "readout p=0.01",
+      "mechanism": "readout",
+      "strength": 0.01,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.006591796875
+    },
+    {
+      "layers": 5,
+      "label": "readout p=0.02",
+      "mechanism": "readout",
+      "strength": 0.02,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.013262939453125
+    },
+    {
+      "layers": 5,
+      "label": "readout p=0.05",
+      "mechanism": "readout",
+      "strength": 0.05,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.0333526611328125
+    },
+    {
+      "layers": 5,
+      "label": "readout p=0.1",
+      "mechanism": "readout",
+      "strength": 0.1,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.06729736328125
+    },
+    {
+      "layers": 5,
+      "label": "device-like composite",
+      "mechanism": "composite",
+      "strength": 1.0,
+      "test_accuracy": 0.875,
+      "accuracy_drop": 0.0,
+      "mean_abs_proba_shift": 0.045977783203125
+    }
+  ]
+}

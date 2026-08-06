@@ -1,0 +1,9 @@
+# Pinned to the versions the committed results were produced with.
+# Qiskit's primitive interfaces changed between major versions, so an
+# unpinned install is unlikely to reproduce these numbers.
+qiskit==1.3.2
+qiskit-aer==0.17.2
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.5.1
+matplotlib==3.9.2
