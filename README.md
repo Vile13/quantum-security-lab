@@ -50,20 +50,27 @@ quantum-security-lab/
 
 ## Findings so far
 
-**`qml-noise-robustness`** — at device-like error rates, test accuracy showed
-**no degradation at any circuit depth**, while the model's output probabilities
-shifted measurably, and that shift grew with every entangling gate added.
-Readout error was the exception: flat in depth, because it applies once at
-measurement rather than accumulating per gate. The practical consequence is
-that an acceptance test built on accuracy alone would pass a model whose
-decision confidence has already eroded substantially.
+**`qml-noise-robustness`** (8 seeds, error bars throughout) — at device-like
+error rates, test accuracy showed **no degradation at any circuit depth**
+(+0.003 ± 0.011 at worst), while the model's output probabilities shifted
+measurably, and that shift grew with every entangling gate added — strictly, in
+8 of 8 seeds. Readout error was the control and behaved like one: flat in depth
+(1 of 8 seeds, about what chance gives), because it applies once at measurement
+rather than accumulating per gate. The practical consequence is that an
+acceptance test built on accuracy alone would pass a model whose decision
+confidence has already eroded substantially.
+
+Running it across seeds also **retracted a v1 claim**: the apparent optimum at
+three layers was one draw from a wide distribution, and depth differences in
+accuracy turned out not to be resolvable at this sample size at all.
 [Details, method and limitations →](./qml-noise-robustness)
 
 ## Roadmap
 
 - [x] `qml-noise-robustness` — baseline model, noise sweep, results writeup
 - [x] CI (ruff lint + pytest on Python 3.10 and 3.12) via GitHub Actions
-- [ ] `qml-noise-robustness` v2 — error bars across seeds, mitigation comparison
+- [x] `qml-noise-robustness` v2 — 8-seed sweep with error bars, depth-scaling tested across seeds
+- [ ] `qml-noise-robustness` v3 — mitigation comparison (readout calibration, zero-noise extrapolation)
 - [ ] `qml-adversarial-attacks` — perturbation attacks on encoded inputs, comparison to classical adversarial robustness
 - [ ] Architecture diagram + short demo
 - [ ] CI (linting, unit tests) via GitHub Actions

@@ -14,7 +14,9 @@ from __future__ import annotations
 
 import json
 import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import asdict, dataclass
+from itertools import pairwise
 from pathlib import Path
 
 import numpy as np
@@ -39,10 +41,15 @@ LAYER_COUNTS = [2, 3, 4, 5]
 # genuine capacity limit of that layer count. Restarting and keeping the best
 # run makes the depth axis mean what the plot claims it means.
 N_RESTARTS = 3
+# Eight seeds is a compromise: a sample standard deviation from three or four
+# runs is itself so noisy that the error bar misleads more than it informs,
+# while every added seed costs a full sweep.
+DEFAULT_SEEDS = [42, 43, 44, 45, 46, 47, 48, 49]
 
 
 @dataclass
 class TrainingResult:
+    seed: int
     layers: int
     weights: list[float]
     final_loss: float
@@ -56,6 +63,7 @@ class TrainingResult:
 
 @dataclass
 class EvaluationRow:
+    seed: int
     layers: int
     label: str
     mechanism: str
@@ -109,6 +117,7 @@ def train(
     assert best_weights is not None  # N_RESTARTS >= 1
 
     summary = TrainingResult(
+        seed=seed,
         layers=layers,
         weights=best_weights.tolist(),
         final_loss=best_loss,
@@ -155,6 +164,7 @@ def evaluate_under_noise(
         accuracy = float(((proba >= 0.5).astype(int) == y_test).mean())
         rows.append(
             EvaluationRow(
+                seed=seed,
                 layers=layers,
                 label=condition.label,
                 mechanism=condition.mechanism,
@@ -174,53 +184,199 @@ def evaluate_under_noise(
     return rows
 
 
-def run(output_dir: Path, seed: int = 42, verbose: bool = True) -> dict:
-    """Run the full depth x noise sweep and persist results as JSON and CSV."""
+def run_single_seed(
+    seed: int, verbose: bool = True
+) -> tuple[list[TrainingResult], list[EvaluationRow]]:
+    """One complete depth x noise sweep at one seed.
+
+    The seed drives the dataset and its split, the weight initialisation of
+    every restart, and the sampler's shot noise. Varying all three together is
+    deliberate: the spread it produces is the spread a reader would see on
+    re-running the experiment, which is what an error bar should mean.
+    """
     x_train, x_test, y_train, y_test = load_moons(seed=seed)
     conditions = all_conditions()
-    if verbose:
-        print(f"dataset: {len(x_train)} train / {len(x_test)} test samples")
-        print(f"sweep:   {len(LAYER_COUNTS)} layer counts x {len(conditions)} noise conditions\n")
 
     trainings: list[TrainingResult] = []
     evaluations: list[EvaluationRow] = []
     for layers in LAYER_COUNTS:
         if verbose:
-            print(f"training layers={layers}")
+            print(f"[seed {seed}] training layers={layers}")
         weights, summary = train(x_train, y_train, layers, seed=seed, verbose=verbose)
         trainings.append(summary)
-        if verbose:
-            print(f"  evaluating {len(conditions)} noise conditions")
         evaluations += evaluate_under_noise(
-            x_test, y_test, weights, layers, conditions, seed=seed, verbose=verbose
+            x_test, y_test, weights, layers, conditions, seed=seed, verbose=False
         )
-        if verbose:
-            print()
+    if verbose:
+        print(f"[seed {seed}] done")
+    return trainings, evaluations
+
+
+def _run_seed_worker(seed: int) -> tuple[list[dict], list[dict]]:
+    """Process-pool entry point. Returns plain dicts because dataclasses defined
+    in this module pickle fine, but dicts keep the boundary explicit."""
+    trainings, evaluations = run_single_seed(seed, verbose=False)
+    return [asdict(t) for t in trainings], [asdict(e) for e in evaluations]
+
+
+def _summarise(values: list[float]) -> dict:
+    """Mean, sample standard deviation and standard error over seeds.
+
+    ``ddof=1`` because these seeds are a sample of possible runs, not the
+    population. With a handful of seeds the distinction is not pedantic: ddof=0
+    would understate the spread by around 7% at n=8.
+    """
+    array = np.asarray(values, dtype=float)
+    n = len(array)
+    std = float(array.std(ddof=1)) if n > 1 else 0.0
+    return {
+        "mean": float(array.mean()),
+        "std": std,
+        "sem": std / np.sqrt(n) if n > 1 else 0.0,
+        "min": float(array.min()),
+        "max": float(array.max()),
+        "n": n,
+    }
+
+
+def aggregate(trainings: list[dict], evaluations: list[dict]) -> dict:
+    """Collapse per-seed rows into mean/spread statistics."""
+    training_rows = []
+    for layers in LAYER_COUNTS:
+        matching = [t for t in trainings if t["layers"] == layers]
+        training_rows.append({
+            "layers": layers,
+            "circuit_depth": matching[0]["circuit_depth"],
+            "two_qubit_gates": matching[0]["two_qubit_gates"],
+            "train_accuracy": _summarise([t["train_accuracy"] for t in matching]),
+            "final_loss": _summarise([t["final_loss"] for t in matching]),
+        })
+
+    evaluation_rows = []
+    keys = []
+    for row in evaluations:
+        key = (row["layers"], row["label"])
+        if key not in keys:
+            keys.append(key)
+    for layers, label in keys:
+        matching = [e for e in evaluations if e["layers"] == layers and e["label"] == label]
+        evaluation_rows.append({
+            "layers": layers,
+            "label": label,
+            "mechanism": matching[0]["mechanism"],
+            "strength": matching[0]["strength"],
+            "test_accuracy": _summarise([e["test_accuracy"] for e in matching]),
+            # Paired within each seed against that seed's own noiseless run, so
+            # the dataset-split variance cancels. This is why the drop resolves
+            # far more sharply than the absolute accuracy it is derived from.
+            "accuracy_drop": _summarise([e["accuracy_drop"] for e in matching]),
+            "mean_abs_proba_shift": _summarise([e["mean_abs_proba_shift"] for e in matching]),
+        })
+    return {"training": training_rows, "evaluation": evaluation_rows}
+
+
+def depth_monotonicity(evaluations: list[dict], seeds: list[int]) -> dict:
+    """In how many seeds does probability shift increase with every added layer?
+
+    The headline claim of v1 was that confidence erosion scales with circuit
+    depth. With one seed that was an observation; counting how often the strict
+    ordering survives across seeds is the closest this design gets to testing it.
+    """
+    results = {}
+    mechanisms = sorted({e["mechanism"] for e in evaluations} - {"none"})
+    for mechanism in mechanisms:
+        strengths = sorted({e["strength"] for e in evaluations if e["mechanism"] == mechanism})
+        strongest = strengths[-1]
+        held = 0
+        for seed in seeds:
+            series = []
+            for layers in LAYER_COUNTS:
+                match = [
+                    e for e in evaluations
+                    if e["seed"] == seed and e["layers"] == layers
+                    and e["mechanism"] == mechanism and e["strength"] == strongest
+                ]
+                if match:
+                    series.append(match[0]["mean_abs_proba_shift"])
+            if len(series) == len(LAYER_COUNTS) and all(
+                a < b for a, b in pairwise(series)
+            ):
+                held += 1
+        results[mechanism] = {"strictly_increasing_in": held, "of_seeds": len(seeds)}
+    return results
+
+
+def run(
+    output_dir: Path,
+    seeds: list[int] | None = None,
+    workers: int | None = None,
+    verbose: bool = True,
+) -> dict:
+    """Run the sweep across seeds and persist per-seed and aggregated results."""
+    seeds = list(seeds) if seeds else list(DEFAULT_SEEDS)
+    conditions = all_conditions()
+    if verbose:
+        print(f"seeds:   {seeds}")
+        print(f"sweep:   {len(LAYER_COUNTS)} layer counts x {len(conditions)} noise conditions")
+        print(f"workers: {workers or 1}\n")
+
+    trainings: list[dict] = []
+    evaluations: list[dict] = []
+    if workers and workers > 1 and len(seeds) > 1:
+        with ProcessPoolExecutor(max_workers=workers) as pool:
+            futures = {pool.submit(_run_seed_worker, s): s for s in seeds}
+            for future in as_completed(futures):
+                seed_trainings, seed_evaluations = future.result()
+                trainings += seed_trainings
+                evaluations += seed_evaluations
+                if verbose:
+                    print(f"  seed {futures[future]} finished "
+                          f"({len({t['seed'] for t in trainings})}/{len(seeds)})")
+    else:
+        for seed in seeds:
+            seed_trainings, seed_evaluations = run_single_seed(seed, verbose=verbose)
+            trainings += [asdict(t) for t in seed_trainings]
+            evaluations += [asdict(e) for e in seed_evaluations]
+
+    # Process completion order is nondeterministic; sort so the written files
+    # are byte-identical across runs with the same seeds.
+    trainings.sort(key=lambda t: (t["seed"], t["layers"]))
+    evaluations.sort(key=lambda e: (e["seed"], e["layers"], e["mechanism"], e["strength"]))
 
     payload = {
         "config": {
-            "seed": seed,
+            "seeds": seeds,
             "layer_counts": LAYER_COUNTS,
             "train_shots": TRAIN_SHOTS,
             "eval_shots": EVAL_SHOTS,
             "max_iterations": MAX_ITERATIONS,
             "n_restarts": N_RESTARTS,
-            "n_train": len(x_train),
-            "n_test": len(x_test),
         },
-        "training": [asdict(t) for t in trainings],
-        "evaluation": [asdict(e) for e in evaluations],
+        "per_seed": {"training": trainings, "evaluation": evaluations},
+        "aggregate": aggregate(trainings, evaluations),
+        "depth_monotonicity": depth_monotonicity(evaluations, seeds),
     }
 
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "results.json").write_text(json.dumps(payload, indent=2))
 
-    csv_lines = ["layers,label,mechanism,strength,test_accuracy,accuracy_drop,mean_abs_proba_shift"]
-    csv_lines += [
-        f"{e.layers},\"{e.label}\",{e.mechanism},{e.strength:g},"
-        f"{e.test_accuracy:.4f},{e.accuracy_drop:.4f},{e.mean_abs_proba_shift:.4f}"
-        for e in evaluations
-    ]
+    header = (
+        "layers,label,mechanism,strength,n_seeds,"
+        "test_accuracy_mean,test_accuracy_std,"
+        "accuracy_drop_mean,accuracy_drop_std,accuracy_drop_sem,"
+        "proba_shift_mean,proba_shift_std"
+    )
+    csv_lines = [header]
+    for row in payload["aggregate"]["evaluation"]:
+        accuracy = row["test_accuracy"]
+        drop = row["accuracy_drop"]
+        shift = row["mean_abs_proba_shift"]
+        csv_lines.append(
+            f"{row['layers']},\"{row['label']}\",{row['mechanism']},{row['strength']:g},"
+            f"{accuracy['n']},{accuracy['mean']:.4f},{accuracy['std']:.4f},"
+            f"{drop['mean']:.4f},{drop['std']:.4f},{drop['sem']:.4f},"
+            f"{shift['mean']:.4f},{shift['std']:.4f}"
+        )
     (output_dir / "results.csv").write_text("\n".join(csv_lines) + "\n")
 
     return payload
