@@ -1,5 +1,7 @@
 # quantum-security-lab
 
+[![CI](https://github.com/Vile13/quantum-security-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Vile13/quantum-security-lab/actions/workflows/ci.yml)
+
 Research and engineering lab investigating the **security and robustness properties of quantum and hybrid quantum-classical machine learning systems**.
 
 Part of a broader portfolio at the intersection of AI security, agent/tool security, and post-quantum cryptography.
@@ -60,6 +62,7 @@ decision confidence has already eroded substantially.
 ## Roadmap
 
 - [x] `qml-noise-robustness` — baseline model, noise sweep, results writeup
+- [x] CI (ruff lint + pytest on Python 3.10 and 3.12) via GitHub Actions
 - [ ] `qml-noise-robustness` v2 — error bars across seeds, mitigation comparison
 - [ ] `qml-adversarial-attacks` — perturbation attacks on encoded inputs, comparison to classical adversarial robustness
 - [ ] Architecture diagram + short demo

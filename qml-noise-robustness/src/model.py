@@ -127,7 +127,9 @@ class VariationalClassifier:
             values[:, column] = x[:, index] if is_feature else weights[index]
         return values
 
-    def predict_proba(self, x: np.ndarray, weights: np.ndarray, shots: int | None = None) -> np.ndarray:
+    def predict_proba(
+        self, x: np.ndarray, weights: np.ndarray, shots: int | None = None
+    ) -> np.ndarray:
         """Return the estimated probability that qubit 0 measures 1, per sample."""
         values = self._bind(x, weights)
         job = self._sampler.run([(self._circuit, values)], shots=shots or self.shots)
@@ -138,7 +140,9 @@ class VariationalClassifier:
     def predict(self, x: np.ndarray, weights: np.ndarray, shots: int | None = None) -> np.ndarray:
         return (self.predict_proba(x, weights, shots) >= 0.5).astype(int)
 
-    def accuracy(self, x: np.ndarray, y: np.ndarray, weights: np.ndarray, shots: int | None = None) -> float:
+    def accuracy(
+        self, x: np.ndarray, y: np.ndarray, weights: np.ndarray, shots: int | None = None
+    ) -> float:
         return float((self.predict(x, weights, shots) == y).mean())
 
 

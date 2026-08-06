@@ -1,0 +1,32 @@
+# Lint configuration for the whole lab. Kept at the repository root so every
+# module is held to the same rules as it is added.
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes -- unused imports and names, undefined references
+    "W",    # pycodestyle warnings
+    "I",    # import sorting
+    "UP",   # pyupgrade
+    "B",    # bugbear -- likely bugs rather than style
+    "SIM",  # simplification
+    "RUF",  # ruff-specific
+]
+
+[tool.ruff.lint.isort]
+# Each module keeps its own top-level `src` package, so `src` is first-party
+# here even though it is not installed.
+known-first-party = ["src"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests reach into private attributes on purpose: the binding layout is exactly
+# the thing that has to be asserted, and it has no public accessor.
+"**/tests/*" = ["SLF001"]
+
+[tool.pytest.ini_options]
+testpaths = ["qml-noise-robustness/tests"]
+pythonpath = ["qml-noise-robustness"]

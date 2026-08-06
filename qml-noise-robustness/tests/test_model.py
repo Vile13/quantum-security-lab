@@ -39,7 +39,9 @@ def test_weight_count_scales_with_layers(layers):
 def test_entangler_count_scales_with_layers():
     """Layer count is the experiment's expressibility axis; it must also be
     the noise-exposure axis, otherwise the trade-off being plotted is not real."""
-    counts = [VariationalClassifier(layers=n, shots=64, seed=1).two_qubit_gate_count for n in (2, 4)]
+    counts = [
+        VariationalClassifier(layers=n, shots=64, seed=1).two_qubit_gate_count for n in (2, 4)
+    ]
     assert counts[1] > counts[0]
 
 
@@ -133,7 +135,8 @@ def test_noise_model_actually_changes_the_output():
     noisy = VariationalClassifier(
         layers=3, noise_model=depolarizing(0.05).model, shots=4096, seed=1
     )
-    shift = np.abs(noisy.predict_proba(x_train, weights) - clean.predict_proba(x_train, weights)).mean()
+    difference = noisy.predict_proba(x_train, weights) - clean.predict_proba(x_train, weights)
+    shift = np.abs(difference).mean()
     assert shift > 0.02, f"noise model appears inert (mean shift {shift:.4f})"
 
 
@@ -145,7 +148,9 @@ def test_stronger_noise_shifts_probabilities_further():
 
     shifts = []
     for p in (0.002, 0.02):
-        noisy = VariationalClassifier(layers=3, noise_model=depolarizing(p).model, shots=4096, seed=1)
+        noisy = VariationalClassifier(
+            layers=3, noise_model=depolarizing(p).model, shots=4096, seed=1
+        )
         shifts.append(np.abs(noisy.predict_proba(x_train, weights) - baseline).mean())
     assert shifts[1] > shifts[0]
 

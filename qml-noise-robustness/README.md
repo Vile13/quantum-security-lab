@@ -105,7 +105,7 @@ Roughly ten minutes on a laptop CPU. Writes `results/results.json`,
 numbers.
 
 ```bash
-PYTHONPATH=. python -m pytest tests/ -q
+pytest -q          # from the repository root; paths come from pyproject.toml
 ```
 
 The tests target failure modes that still produce plausible output: swapped
@@ -113,7 +113,10 @@ parameter binding, a noise model attached to gate names the transpiler never
 emits (and which is therefore silently inert), and the readout bit taken from
 the wrong end of the register. Two tests are anchored on analytic values —
 identity weights must give `P(q0=1) = 0`, and a unit input scale must give
-`sin^2(x/2)`.
+`sin^2(x/2)`. `test_experiment.py` runs the whole sweep at throwaway fidelity
+so a break in the orchestration or figure code cannot reach a commit unnoticed.
+
+Both run in CI on every push, together with `ruff check .`.
 
 ## 6. Metrics
 

@@ -12,7 +12,7 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")  # no display in CI or over SSH
-import matplotlib.pyplot as plt  # noqa: E402
+import matplotlib.pyplot as plt
 
 CHANCE_LEVEL = 0.5
 MECHANISM_TITLES = {
@@ -42,13 +42,26 @@ def plot_noise_sweeps(payload: dict, output_path: Path) -> Path:
     }
 
     fig, axes = plt.subplots(2, 2, figsize=(11, 8), sharey=True)
-    for ax, mechanism in zip(axes.flat, mechanisms):
+    # strict=True: adding a mechanism without adding a panel should fail loudly
+    # rather than silently drop it from the figure.
+    for ax, mechanism in zip(axes.flat, mechanisms, strict=True):
+        plotted_any = False
         for depth in depths:
             strengths, accuracies = _rows_for(payload, mechanism, depth)
-            ax.plot(strengths, accuracies, marker="o", label=f"{depth} re-uploading layers")
+            if strengths:
+                ax.plot(strengths, accuracies, marker="o", label=f"{depth} re-uploading layers")
+                plotted_any = True
         ax.axhline(CHANCE_LEVEL, color="grey", linestyle=":", linewidth=1)
         ax.set_title(MECHANISM_TITLES[mechanism], fontsize=10)
-        ax.set_xscale("log")
+        if plotted_any:
+            # A log axis over an empty panel raises rather than drawing nothing,
+            # so it is only applied where there is data. A reduced sweep should
+            # still produce a readable figure.
+            ax.set_xscale("log")
+        else:
+            ax.text(0.5, 0.5, "not in this run", transform=ax.transAxes,
+                    ha="center", va="center", fontsize=9, color="grey")
+            ax.set_xticks([])
         ax.set_xlabel("noise strength")
         ax.grid(alpha=0.3)
     axes[0][0].set_ylabel("test accuracy")
