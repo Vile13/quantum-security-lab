@@ -116,11 +116,12 @@ pip install -r requirements.txt
 python run_experiment.py
 ```
 
-Roughly 15 minutes on a 4-core laptop; `--workers 1` runs it serially in about
-an hour, `--seeds 42 43` cuts it down for a quick look. Writes
-`results/results.json`, `results/results.csv`, and two figures. Everything is
-seeded and the output is sorted before writing, so repeated runs with the same
-seeds produce byte-identical files regardless of worker scheduling.
+Roughly 21 minutes on a 4-core laptop; `--workers 1` runs it serially in about
+an hour and a half, `--seeds 42 43` cuts it down for a quick look. Writes
+`results/results.json`, `results/results.csv`, `results/mitigation.csv` and
+three figures. Everything is seeded and the output is sorted before writing, so
+repeated runs with the same seeds produce byte-identical files regardless of
+worker scheduling.
 
 The entry point pins every numeric library to a single thread before importing
 them. That is a speedup, not a restriction: on two-qubit circuits Aer's internal
@@ -284,34 +285,207 @@ themselves, so read it as "at these rates", not as an intrinsic ranking.
   four layer counts share the same train/test split, which is what makes the
   depth comparison paired and sensitive — but it also means the four curves in
   a figure are correlated, not independent samples.
-- **No mitigation applied.** Readout error is classically correctable and gate
-  errors respond to zero-noise extrapolation. This module measures the
-  unmitigated baseline only.
+- **Two mitigations, both standard.** §9–10 measure readout calibration and
+  linear ZNE. Richardson or exponential extrapolation, probabilistic error
+  cancellation, and noise-aware training are all untested here, and the ZNE
+  result in particular is a statement about *linear* ZNE at these error rates.
 - **Accuracy on a balanced two-class problem** is a weak metric in general; it
   is adequate here because the split is stratified and the classes are equal.
 
-## 9. What a mitigation would look like
+## 9. Mitigation
 
-The §7 results reorder the priorities that intuition would suggest.
+Two standard techniques, chosen because they target different causes:
 
-**Readout correction is the obvious mitigation and the least useful one here.**
-A calibration matrix measured once per device and inverted at inference is
-cheap and model-agnostic — but readout error was already costing zero accuracy
-and the smallest probability shift of any mechanism tested. It would be effort
-spent on the mechanism that hurts least.
+**Readout calibration.** Each basis state is prepared and measured on the same
+backend the model runs on, giving a matrix `M` with `measured = M · true`. Every
+measured distribution is then corrected by a least-squares solve against `M`,
+clipped to non-negative and renormalised. The circuit is untouched; only the
+interpretation of the counts changes.
 
-**Depth reduction is where the leverage is.** Every gate-based mechanism scales
-with entangler count in 8 of 8 seeds, and the accuracy cost of using fewer
-layers is — beyond two — too small for this experiment to resolve at all
-(§7.1). Shortening the circuit therefore mitigates every gate-based mechanism
-at once, for a price the measurement cannot even detect. That asymmetry, not a
-specific optimal depth, is the actionable result.
+**Zero-noise extrapolation (ZNE).** The circuit's unitary part is folded as
+`U (U† U)^k`, which multiplies gate count — and therefore accumulated gate
+error — by 1, 3 and 5 while leaving the ideal unitary unchanged. A line is
+fitted through the three noise levels per sample and evaluated at zero noise.
 
-**The measurement itself needs to change.** The strongest finding is that
-accuracy did not detect degradation that was plainly present. Any monitoring
-for a deployed QML model should track output distributions against a noiseless
-reference, not just label agreement — otherwise the first visible signal
-arrives long after the outputs stopped being trustworthy.
+Both are applied to the same conditions, and to the combination of the two.
+The conditions are chosen so that each technique meets a case it should fix and
+a case it should not touch — a mitigation that improved everything equally
+would be smoothing numbers rather than correcting a mechanism.
 
-None of these are implemented here. Measuring the unmitigated baseline comes
-first, or there is nothing to compare a mitigation against.
+### 9.1 Implementation notes that matter
+
+Folding is separated by **barriers**. Without them the transpiler recognises
+`U† U` as the identity and cancels it; the folded circuit is then no noisier
+than the original, every scale returns the same value, and ZNE reports a
+confident zero improvement that looks like a finding about ZNE rather than a
+bug. `tests/test_mitigation.py` asserts that the two-qubit gate count really is
+multiplied by the fold scale, and that folding leaves the *noiseless* output
+unchanged.
+
+**Extrapolation is linear, not Richardson.** With three shot-noisy points a
+polynomial forced exactly through all of them mostly extrapolates the sampling
+error, with a large lever arm.
+
+**Both strategies are derived from the same shots.** Each fold scale is sampled
+once and both the raw and the readout-corrected marginal are computed from that
+one measurement. Beyond halving the runs, this makes the four strategies a
+paired comparison — a difference between them is the mitigation, not a
+different draw of shot noise.
+
+**The calibration matrix is not a pure readout characterisation.** Its
+preparation circuits use X gates, so on a backend with gate errors it absorbs a
+little gate error too. That is a property of the technique, not of this
+implementation, and §10 shows it having a visible consequence.
+
+## 10. Mitigation results
+
+8 seeds × 4 layer counts pooled, so n = 32 per cell. Values are the fraction of
+the unmitigated probability shift removed, mean ± 1 SD. Full data in
+[`results/mitigation.csv`](./results/mitigation.csv).
+
+![mitigation by mechanism](./results/mitigation.png)
+
+| Condition | Unmitigated shift | Readout calibration | ZNE | Both |
+|---|---|---|---|---|
+| Device-like composite | 0.039 ± 0.009 | 43.8% ± 9.4 | 42.5% ± 3.2 | **84.9% ± 3.4** |
+| Readout, p=0.1 | 0.068 ± 0.004 | **92.2% ± 1.3** | **−0.0% ± 0.0** | 92.2% ± 1.3 |
+| Depolarizing, p=0.02 | 0.206 ± 0.049 | 0.7% ± 0.4 | 9.8% ± 6.4 | 10.6% ± 6.8 |
+| Thermal, T1 = 2 µs | 0.168 ± 0.042 | 4.4% ± 1.9 | 13.6% ± 9.2 | 18.5% ± 11.3 |
+
+### 10.1 Each technique corrects its own mechanism, and only its own
+
+The cleanest number in the table is a zero. **ZNE removes −0.0% ± 0.0 of a pure
+readout error** — not approximately nothing, but nothing, with zero variance
+across all 32 runs. Folding repeats the unitary; a measurement-time error is
+applied once regardless, so all three noise scales return the same value, the
+fitted line is flat, and the extrapolated intercept is the measured value.
+
+The converse holds: readout calibration removes 0.7% ± 0.4 of pure depolarizing
+noise, which is nothing it could not have got from re-rounding.
+
+This matters more than the headline percentages. A mitigation that improved
+every condition would be indistinguishable from one that merely pulled outputs
+toward some average — and on a metric like probability shift, pulling toward
+the mean *would* look like an improvement. The zeros are what rule that out.
+
+### 10.2 On the realistic model, the two combine almost additively
+
+For the composite device model — the condition that stands in for real
+hardware — readout calibration recovers 43.8% and ZNE 42.5%. Together they
+recover **84.9%**, against 86.3% if the effects were exactly additive. The two
+mechanisms contribute roughly independently and are corrected roughly
+independently.
+
+Note also that the combined result has a *tighter* error bar (± 3.4) than
+readout calibration alone (± 9.4). Correcting more of the error leaves less
+mechanism-dependent variation for the seed to influence.
+
+### 10.3 Readout calibration picks up thermal relaxation too
+
+It removes 4.4% ± 1.9 of thermal relaxation — small, but the error bar excludes
+zero, and there is a mechanism for it. Amplitude decay toward |0⟩ near the end
+of the circuit is indistinguishable at measurement time from an asymmetric
+readout error, and the calibration circuits — which use X gates and are
+themselves subject to decay — absorb part of it into the matrix.
+
+This is the limitation from §9.1 showing up as a measurable effect rather than
+a caveat. It is not free: what the matrix absorbs is device- and
+circuit-dependent, so a calibration matrix taken from short preparation
+circuits will not correct a long circuit's decay in the same proportion.
+
+### 10.4 Mitigation is weakest exactly where the damage is largest
+
+Against strong single-mechanism gate noise, ZNE recovers only about 10–14%,
+with error bars ± 6 to ± 9. Those are the two conditions with by far the
+largest unmitigated shift (0.21 and 0.17, against 0.039 for the composite).
+
+The reason is structural rather than incidental. ZNE assumes the observable is
+approximately linear in noise strength over the range being extrapolated. At
+p=0.02 depolarizing, a five-fold circuit carries 15 two-qubit gates and the
+state is well on its way to maximally mixed — the response has flattened, and
+a line fitted through the flat part extrapolates back to nearly where it
+started.
+
+So the honest summary is not "mitigation recovers most of the error." It is
+that **mitigation recovers most of the error in the regime where the error was
+small to begin with**, and degrades precisely as the problem gets harder.
+
+### 10.5 Accuracy sees it in exactly one condition
+
+In three of the four conditions the accuracy drop stays within noise whether or
+not a mitigation is applied — as it did unmitigated in §7.2. On the composite
+device model it is +0.002 ± 0.007 unmitigated and −0.000 ± 0.004 with both
+mitigations: an 85% reduction in probability shift that accuracy reports as
+nothing either way.
+
+The exception is thermal relaxation at T1 = 2 µs, the one condition severe
+enough to break accuracy in the first place (§7.4). There mitigation is clearly
+visible in the metric:
+
+| Strategy | Accuracy drop | SEM |
+|---|---|---|
+| none | +0.0715 | 0.0171 |
+| readout calibration | +0.0582 | 0.0162 |
+| ZNE | +0.0512 | 0.0147 |
+| both | **+0.0379** | 0.0130 |
+
+The loss falls from 7.2 to 3.8 percentage points — roughly halved — and the
+ordering matches the probability-shift ordering exactly.
+
+So the two metrics do not disagree about what mitigation does; they disagree
+about **when it becomes visible**. Probability shift registers the correction in
+every condition. Accuracy registers it only once the underlying damage has
+grown large enough to move labels — by which point, per §7.4, the model's
+run-to-run variance has already become its own failure mode.
+
+For an operator, the practical consequence is unchanged and now better
+supported: choosing a mitigation on the evidence of accuracy alone means
+choosing it blind in exactly the regime where the choice is still cheap to act
+on.
+
+## 11. What this means in practice
+
+## 11. What this means in practice
+
+**A recommendation from v2 is withdrawn here.** On the strength of the
+unmitigated sweep alone, this section argued that readout correction was the
+obvious mitigation and the least useful one, because readout error cost the
+least. Measuring it says otherwise: on the composite device model, readout
+calibration removes 43.8% of the probability shift — statistically tied with
+ZNE, and it does so from four calibration circuits measured once per device
+rather than from folding every circuit to 3× and 5× its length. Per unit of
+cost it is far and away the best thing on the list.
+
+The error in the v2 reasoning is worth naming, because it is easy to repeat:
+ranking mechanisms by how much damage they cause in isolation says nothing
+about how much of a *realistic composite* error each one contributes. Readout
+error is a small share of the total and a large share of the correctable total.
+
+With that corrected, the priorities are:
+
+**1. Calibrate readout.** Cheapest by a wide margin, no change to the circuit,
+and worth 43.8% ± 9.4 of the shift on the realistic model.
+
+**2. Reduce depth.** Every gate-based mechanism scales with entangler count in
+8 of 8 seeds (§7.3), and beyond two layers the accuracy cost of using fewer is
+too small for this experiment to resolve (§7.1). One change, every gate-based
+mechanism, at a price the measurement cannot detect.
+
+**3. Add ZNE if the shot budget allows.** Worth another 41 percentage points on
+top of readout calibration on the composite model, for roughly 9× the shots.
+Note its failure mode: against severe gate noise it recovers only 10–14%
+(§10.4), so it is a refinement for an already-healthy device, not a rescue for
+a bad one.
+
+**4. Monitor probability shift, not accuracy.** This is the finding that
+survived every version of this module. Accuracy detected none of the
+degradation in §7.2 and none of the correction in §10.5, except in the single
+condition already severe enough to be obvious. Any monitoring for a deployed
+QML model should compare output distributions against a reference, not just
+label agreement.
+
+The uncomfortable version of all four points together: on the realistic
+composite model, 85% of the measured corruption of this model's outputs is
+correctable with standard techniques — and the metric normally used to decide
+whether a model is working would have reported that nothing was ever wrong, and
+that nothing was ever fixed.

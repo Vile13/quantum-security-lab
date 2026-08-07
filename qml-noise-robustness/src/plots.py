@@ -96,6 +96,69 @@ def plot_noise_sweeps(payload: dict, output_path: Path) -> Path:
     return output_path
 
 
+STRATEGY_STYLE = {
+    "readout": ("tab:blue", "readout calibration"),
+    "zne": ("tab:orange", "zero-noise extrapolation"),
+    "readout+zne": ("tab:green", "both"),
+}
+
+
+def plot_mitigation(payload: dict, output_path: Path) -> Path:
+    """How much of the unmitigated probability shift each strategy removes.
+
+    ``none`` is the reference the reduction is measured against and is a
+    constant zero, so it is not drawn as its own bar.
+    """
+    rows = payload["mitigation_aggregate"]
+    labels = []
+    for row in rows:
+        if row["label"] not in labels:
+            labels.append(row["label"])
+    strategies = list(STRATEGY_STYLE)
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    width = 0.26
+    positions = range(len(labels))
+    for offset, strategy in enumerate(strategies):
+        colour, legend = STRATEGY_STYLE[strategy]
+        means, errors = [], []
+        for label in labels:
+            match = next(
+                (r for r in rows if r["label"] == label and r["strategy"] == strategy), None
+            )
+            means.append(match["shift_reduction"]["mean"] * 100 if match else 0.0)
+            errors.append(match["shift_reduction"]["std"] * 100 if match else 0.0)
+        xs = [p + (offset - 1) * width for p in positions]
+        ax.bar(xs, means, width, yerr=errors, capsize=3, color=colour, alpha=0.85, label=legend)
+        # A bar at zero renders as nothing, which reads as a missing series
+        # rather than as the result. Where a mitigation genuinely did nothing,
+        # say so in words.
+        for position, mean in zip(xs, means, strict=True):
+            if abs(mean) < 1.0:
+                ax.text(position, 1.5, "0%", ha="center", va="bottom",
+                        fontsize=7, color=colour, rotation=90)
+
+    # Zero is the meaningful reference: below it the mitigation left the output
+    # further from the noiseless result than doing nothing at all.
+    ax.axhline(0, color="black", linewidth=1)
+    ax.set_xticks(list(positions))
+    ax.set_xticklabels([label.replace(" ", "\n", 1) for label in labels], fontsize=9)
+    ax.set_ylabel("probability shift removed (%)")
+    ax.set_title(
+        "Each mitigation corrects its own mechanism, and only its own\n"
+        f"error bars = 1 SD over {len(payload['config']['seeds'])} seeds x "
+        f"{len(payload['config']['layer_counts'])} layer counts",
+        fontsize=11,
+    )
+    ax.grid(alpha=0.3, axis="y")
+    ax.legend(fontsize=9, loc="upper right")
+    fig.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=150)
+    plt.close(fig)
+    return output_path
+
+
 def plot_depth_tradeoff(payload: dict, output_path: Path) -> Path:
     """Accuracy and confidence erosion under the composite model, by depth.
 

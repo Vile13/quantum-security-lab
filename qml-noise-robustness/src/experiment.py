@@ -23,8 +23,22 @@ import numpy as np
 from scipy.optimize import minimize
 
 from .data import load_moons
+from .mitigation import (
+    STRATEGIES,
+    ZNE_SCALES,
+    ReadoutMitigator,
+    build_zne_classifiers,
+    mitigation_variants,
+)
 from .model import VariationalClassifier, log_loss
-from .noise_models import NoiseCondition, all_conditions
+from .noise_models import (
+    NoiseCondition,
+    all_conditions,
+    depolarizing,
+    device_like,
+    readout,
+    thermal_relaxation,
+)
 
 # Shots are lower during training than during evaluation: the optimiser
 # tolerates a noisy objective, but the reported accuracies should not be
@@ -46,6 +60,26 @@ N_RESTARTS = 3
 # while every added seed costs a full sweep.
 DEFAULT_SEEDS = [42, 43, 44, 45, 46, 47, 48, 49]
 
+# Calibration is measured once per condition and reused for every sample, so it
+# can afford more shots than an individual evaluation. A noisy calibration
+# matrix would be inverted into the corrected result of every sample at once.
+CALIBRATION_SHOTS = 16384
+
+
+def _mitigation_conditions() -> list[NoiseCondition]:
+    """Conditions the mitigation comparison runs on.
+
+    One realistic composite, plus the strongest setting of one mechanism per
+    type: a measurement-time error that readout mitigation should fix and ZNE
+    should not touch, and two gate-accumulated errors where the reverse holds.
+    Choosing conditions where each mitigation is expected to fail is what makes
+    the comparison informative rather than merely favourable.
+    """
+    return [device_like(), readout(0.1), depolarizing(0.02), thermal_relaxation(25.0)]
+
+
+MITIGATION_CONDITIONS = _mitigation_conditions()
+
 
 @dataclass
 class TrainingResult:
@@ -59,6 +93,21 @@ class TrainingResult:
     train_accuracy: float
     seconds: float
     restart_losses: list[float]  # every restart, so run-to-run spread stays visible
+
+
+@dataclass
+class MitigationRow:
+    seed: int
+    layers: int
+    label: str
+    mechanism: str
+    strategy: str
+    test_accuracy: float
+    accuracy_drop: float
+    mean_abs_proba_shift: float
+    # Fraction of the unmitigated shift removed. Positive is an improvement,
+    # negative means the mitigation made the outputs worse than doing nothing.
+    shift_reduction: float
 
 
 @dataclass
@@ -184,9 +233,61 @@ def evaluate_under_noise(
     return rows
 
 
+def evaluate_mitigations(
+    x_test: np.ndarray,
+    y_test: np.ndarray,
+    weights: np.ndarray,
+    layers: int,
+    seed: int = 42,
+) -> list[MitigationRow]:
+    """Compare mitigation strategies on a focused subset of noise conditions.
+
+    The subset is deliberate rather than a cost compromise: it pairs the
+    realistic composite model with the strongest setting of one mechanism per
+    *type*, so each mitigation can be checked against a condition it should fix
+    and a condition it should not touch. A mitigation that improves everything
+    equally would be smoothing the numbers, not correcting a mechanism.
+    """
+    baseline = VariationalClassifier(layers=layers, noise_model=None, shots=EVAL_SHOTS, seed=seed)
+    ideal_proba = baseline.predict_proba(x_test, weights)
+    ideal_accuracy = float(((ideal_proba >= 0.5).astype(int) == y_test).mean())
+
+    rows: list[MitigationRow] = []
+    for condition in MITIGATION_CONDITIONS:
+        classifiers = build_zne_classifiers(
+            layers, condition.model, EVAL_SHOTS, seed, ZNE_SCALES
+        )
+        mitigator = ReadoutMitigator(condition.model, shots=CALIBRATION_SHOTS, seed=seed)
+        variants = mitigation_variants(classifiers, mitigator, x_test, weights, ZNE_SCALES)
+
+        unmitigated_shift = float(np.mean(np.abs(variants["none"] - ideal_proba)))
+        for strategy in STRATEGIES:
+            proba = variants[strategy]
+            shift = float(np.mean(np.abs(proba - ideal_proba)))
+            rows.append(
+                MitigationRow(
+                    seed=seed,
+                    layers=layers,
+                    label=condition.label,
+                    mechanism=condition.mechanism,
+                    strategy=strategy,
+                    test_accuracy=float(((proba >= 0.5).astype(int) == y_test).mean()),
+                    accuracy_drop=ideal_accuracy
+                    - float(((proba >= 0.5).astype(int) == y_test).mean()),
+                    mean_abs_proba_shift=shift,
+                    shift_reduction=(
+                        (unmitigated_shift - shift) / unmitigated_shift
+                        if unmitigated_shift > 0
+                        else 0.0
+                    ),
+                )
+            )
+    return rows
+
+
 def run_single_seed(
     seed: int, verbose: bool = True
-) -> tuple[list[TrainingResult], list[EvaluationRow]]:
+) -> tuple[list[TrainingResult], list[EvaluationRow], list[MitigationRow]]:
     """One complete depth x noise sweep at one seed.
 
     The seed drives the dataset and its split, the weight initialisation of
@@ -199,6 +300,7 @@ def run_single_seed(
 
     trainings: list[TrainingResult] = []
     evaluations: list[EvaluationRow] = []
+    mitigations: list[MitigationRow] = []
     for layers in LAYER_COUNTS:
         if verbose:
             print(f"[seed {seed}] training layers={layers}")
@@ -207,16 +309,21 @@ def run_single_seed(
         evaluations += evaluate_under_noise(
             x_test, y_test, weights, layers, conditions, seed=seed, verbose=False
         )
+        mitigations += evaluate_mitigations(x_test, y_test, weights, layers, seed=seed)
     if verbose:
         print(f"[seed {seed}] done")
-    return trainings, evaluations
+    return trainings, evaluations, mitigations
 
 
-def _run_seed_worker(seed: int) -> tuple[list[dict], list[dict]]:
+def _run_seed_worker(seed: int) -> tuple[list[dict], list[dict], list[dict]]:
     """Process-pool entry point. Returns plain dicts because dataclasses defined
     in this module pickle fine, but dicts keep the boundary explicit."""
-    trainings, evaluations = run_single_seed(seed, verbose=False)
-    return [asdict(t) for t in trainings], [asdict(e) for e in evaluations]
+    trainings, evaluations, mitigations = run_single_seed(seed, verbose=False)
+    return (
+        [asdict(t) for t in trainings],
+        [asdict(e) for e in evaluations],
+        [asdict(m) for m in mitigations],
+    )
 
 
 def _summarise(values: list[float]) -> dict:
@@ -275,6 +382,36 @@ def aggregate(trainings: list[dict], evaluations: list[dict]) -> dict:
     return {"training": training_rows, "evaluation": evaluation_rows}
 
 
+def aggregate_mitigations(mitigations: list[dict]) -> list[dict]:
+    """Collapse the seed axis of the mitigation comparison.
+
+    Layers are pooled: the mitigation question is about mechanisms, and v2
+    established that depth changes how much error accumulates but not which
+    mechanism produced it. Pooling therefore trades a distinction that carries
+    little information here for error bars over four times as many samples.
+    """
+    rows = []
+    keys = []
+    for row in mitigations:
+        key = (row["label"], row["strategy"])
+        if key not in keys:
+            keys.append(key)
+    for label, strategy in keys:
+        matching = [
+            m for m in mitigations if m["label"] == label and m["strategy"] == strategy
+        ]
+        rows.append({
+            "label": label,
+            "mechanism": matching[0]["mechanism"],
+            "strategy": strategy,
+            "test_accuracy": _summarise([m["test_accuracy"] for m in matching]),
+            "accuracy_drop": _summarise([m["accuracy_drop"] for m in matching]),
+            "mean_abs_proba_shift": _summarise([m["mean_abs_proba_shift"] for m in matching]),
+            "shift_reduction": _summarise([m["shift_reduction"] for m in matching]),
+        })
+    return rows
+
+
 def depth_monotonicity(evaluations: list[dict], seeds: list[int]) -> dict:
     """In how many seeds does probability shift increase with every added layer?
 
@@ -322,26 +459,32 @@ def run(
 
     trainings: list[dict] = []
     evaluations: list[dict] = []
+    mitigations: list[dict] = []
     if workers and workers > 1 and len(seeds) > 1:
         with ProcessPoolExecutor(max_workers=workers) as pool:
             futures = {pool.submit(_run_seed_worker, s): s for s in seeds}
             for future in as_completed(futures):
-                seed_trainings, seed_evaluations = future.result()
+                seed_trainings, seed_evaluations, seed_mitigations = future.result()
                 trainings += seed_trainings
                 evaluations += seed_evaluations
+                mitigations += seed_mitigations
                 if verbose:
                     print(f"  seed {futures[future]} finished "
                           f"({len({t['seed'] for t in trainings})}/{len(seeds)})")
     else:
         for seed in seeds:
-            seed_trainings, seed_evaluations = run_single_seed(seed, verbose=verbose)
+            seed_trainings, seed_evaluations, seed_mitigations = run_single_seed(
+                seed, verbose=verbose
+            )
             trainings += [asdict(t) for t in seed_trainings]
             evaluations += [asdict(e) for e in seed_evaluations]
+            mitigations += [asdict(m) for m in seed_mitigations]
 
     # Process completion order is nondeterministic; sort so the written files
     # are byte-identical across runs with the same seeds.
     trainings.sort(key=lambda t: (t["seed"], t["layers"]))
     evaluations.sort(key=lambda e: (e["seed"], e["layers"], e["mechanism"], e["strength"]))
+    mitigations.sort(key=lambda m: (m["seed"], m["layers"], m["label"], m["strategy"]))
 
     payload = {
         "config": {
@@ -352,8 +495,13 @@ def run(
             "max_iterations": MAX_ITERATIONS,
             "n_restarts": N_RESTARTS,
         },
-        "per_seed": {"training": trainings, "evaluation": evaluations},
+        "per_seed": {
+            "training": trainings,
+            "evaluation": evaluations,
+            "mitigation": mitigations,
+        },
         "aggregate": aggregate(trainings, evaluations),
+        "mitigation_aggregate": aggregate_mitigations(mitigations),
         "depth_monotonicity": depth_monotonicity(evaluations, seeds),
     }
 
@@ -378,5 +526,22 @@ def run(
             f"{shift['mean']:.4f},{shift['std']:.4f}"
         )
     (output_dir / "results.csv").write_text("\n".join(csv_lines) + "\n")
+
+    mitigation_lines = [
+        "label,mechanism,strategy,n,"
+        "proba_shift_mean,proba_shift_std,shift_reduction_mean,shift_reduction_std,"
+        "accuracy_drop_mean,accuracy_drop_std"
+    ]
+    for row in payload["mitigation_aggregate"]:
+        shift = row["mean_abs_proba_shift"]
+        reduction = row["shift_reduction"]
+        drop = row["accuracy_drop"]
+        mitigation_lines.append(
+            f"\"{row['label']}\",{row['mechanism']},{row['strategy']},{shift['n']},"
+            f"{shift['mean']:.4f},{shift['std']:.4f},"
+            f"{reduction['mean']:.4f},{reduction['std']:.4f},"
+            f"{drop['mean']:.4f},{drop['std']:.4f}"
+        )
+    (output_dir / "mitigation.csv").write_text("\n".join(mitigation_lines) + "\n")
 
     return payload

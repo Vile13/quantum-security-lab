@@ -26,7 +26,7 @@ import argparse  # noqa: E402
 from pathlib import Path  # noqa: E402
 
 from src.experiment import DEFAULT_SEEDS, run  # noqa: E402
-from src.plots import plot_depth_tradeoff, plot_noise_sweeps  # noqa: E402
+from src.plots import plot_depth_tradeoff, plot_mitigation, plot_noise_sweeps  # noqa: E402
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
@@ -45,10 +45,14 @@ def main() -> None:
     payload = run(args.output, seeds=args.seeds, workers=args.workers, verbose=not args.quiet)
 
     if not args.no_plots:
-        sweeps = plot_noise_sweeps(payload, args.output / "noise_sweeps.png")
-        tradeoff = plot_depth_tradeoff(payload, args.output / "depth_tradeoff.png")
-        print(f"wrote {sweeps}\nwrote {tradeoff}")
-    print(f"wrote {args.output / 'results.json'}\nwrote {args.output / 'results.csv'}")
+        for figure in (
+            plot_noise_sweeps(payload, args.output / "noise_sweeps.png"),
+            plot_depth_tradeoff(payload, args.output / "depth_tradeoff.png"),
+            plot_mitigation(payload, args.output / "mitigation.png"),
+        ):
+            print(f"wrote {figure}")
+    for name in ("results.json", "results.csv", "mitigation.csv"):
+        print(f"wrote {args.output / name}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+label,mechanism,strategy,n,proba_shift_mean,proba_shift_std,shift_reduction_mean,shift_reduction_std,accuracy_drop_mean,accuracy_drop_std
+"depolarizing p=0.02",depolarizing,none,32,0.2063,0.0491,0.0000,0.0000,-0.0004,0.0108
+"depolarizing p=0.02",depolarizing,readout,32,0.2050,0.0493,0.0070,0.0040,0.0004,0.0087
+"depolarizing p=0.02",depolarizing,readout+zne,32,0.1875,0.0561,0.1061,0.0682,0.0000,0.0084
+"depolarizing p=0.02",depolarizing,zne,32,0.1890,0.0558,0.0982,0.0642,-0.0012,0.0092
+"device-like composite",composite,none,32,0.0390,0.0085,0.0000,0.0000,0.0008,0.0089
+"device-like composite",composite,readout,32,0.0227,0.0082,0.4376,0.0942,0.0020,0.0072
+"device-like composite",composite,readout+zne,32,0.0061,0.0026,0.8493,0.0342,-0.0004,0.0039
+"device-like composite",composite,zne,32,0.0222,0.0039,0.4246,0.0320,0.0008,0.0071
+"readout p=0.1",readout,none,32,0.0683,0.0040,0.0000,0.0000,-0.0004,0.0039
+"readout p=0.1",readout,readout,32,0.0053,0.0007,0.9218,0.0125,0.0000,0.0032
+"readout p=0.1",readout,readout+zne,32,0.0053,0.0007,0.9218,0.0125,0.0000,0.0032
+"readout p=0.1",readout,zne,32,0.0683,0.0040,-0.0000,0.0000,0.0000,0.0032
+"thermal T1=2us",thermal_relaxation,none,32,0.1677,0.0423,0.0000,0.0000,0.0715,0.0969
+"thermal T1=2us",thermal_relaxation,readout,32,0.1610,0.0433,0.0442,0.0193,0.0582,0.0917
+"thermal T1=2us",thermal_relaxation,readout+zne,32,0.1408,0.0508,0.1847,0.1133,0.0379,0.0736
+"thermal T1=2us",thermal_relaxation,zne,32,0.1481,0.0495,0.1363,0.0920,0.0512,0.0833

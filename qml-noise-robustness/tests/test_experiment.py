@@ -16,8 +16,8 @@ import numpy as np
 import pytest
 
 from src import experiment
-from src.noise_models import depolarizing, device_like, ideal
-from src.plots import plot_depth_tradeoff, plot_noise_sweeps
+from src.noise_models import depolarizing, device_like, ideal, readout
+from src.plots import plot_depth_tradeoff, plot_mitigation, plot_noise_sweeps
 
 
 @pytest.fixture
@@ -34,6 +34,10 @@ def fast_sweep(monkeypatch):
         experiment, "all_conditions",
         lambda: [ideal(), depolarizing(0.001), depolarizing(0.01), device_like()],
     )
+    # The mitigation stage runs three fold scales per condition, so the full
+    # four-condition set dominates the suite's runtime for no extra coverage.
+    monkeypatch.setattr(experiment, "MITIGATION_CONDITIONS", [device_like(), readout(0.1)])
+    monkeypatch.setattr(experiment, "CALIBRATION_SHOTS", 256)
 
 
 SEEDS = [1, 2]
@@ -90,10 +94,44 @@ def test_every_restart_loss_is_recorded(tmp_path, fast_sweep):
 
 def test_figures_are_produced_from_the_payload(tmp_path, fast_sweep):
     payload = experiment.run(tmp_path, seeds=SEEDS, workers=1, verbose=False)
-    sweeps = plot_noise_sweeps(payload, tmp_path / "noise_sweeps.png")
-    tradeoff = plot_depth_tradeoff(payload, tmp_path / "depth_tradeoff.png")
-    assert sweeps.exists() and sweeps.stat().st_size > 0
-    assert tradeoff.exists() and tradeoff.stat().st_size > 0
+    figures = [
+        plot_noise_sweeps(payload, tmp_path / "noise_sweeps.png"),
+        plot_depth_tradeoff(payload, tmp_path / "depth_tradeoff.png"),
+        plot_mitigation(payload, tmp_path / "mitigation.png"),
+    ]
+    for figure in figures:
+        assert figure.exists() and figure.stat().st_size > 0
+
+
+def test_mitigation_stage_is_recorded_and_aggregated(tmp_path, fast_sweep):
+    payload = experiment.run(tmp_path, seeds=SEEDS, workers=1, verbose=False)
+    per_seed = payload["per_seed"]["mitigation"]
+    # seeds x layer counts x conditions x strategies
+    assert len(per_seed) == len(SEEDS) * 2 * 2 * 4
+    # Aggregation pools the seed and layer axes, leaving conditions x strategies.
+    assert len(payload["mitigation_aggregate"]) == 2 * 4
+    assert (tmp_path / "mitigation.csv").exists()
+
+    for row in payload["mitigation_aggregate"]:
+        if row["strategy"] == "none":
+            # "none" is the reference the reduction is measured against.
+            assert row["shift_reduction"]["mean"] == 0.0
+        assert row["mean_abs_proba_shift"]["mean"] >= 0.0
+
+
+def test_mitigation_reduction_is_consistent_with_the_recorded_shifts(tmp_path, fast_sweep):
+    """shift_reduction must be derivable from the shifts it claims to summarise."""
+    payload = experiment.run(tmp_path, seeds=SEEDS, workers=1, verbose=False)
+    rows = payload["per_seed"]["mitigation"]
+    for row in rows:
+        reference = next(
+            r for r in rows
+            if r["seed"] == row["seed"] and r["layers"] == row["layers"]
+            and r["label"] == row["label"] and r["strategy"] == "none"
+        )
+        base = reference["mean_abs_proba_shift"]
+        expected = (base - row["mean_abs_proba_shift"]) / base if base > 0 else 0.0
+        assert row["shift_reduction"] == pytest.approx(expected)
 
 
 # --- aggregation statistics, checked against known values -------------------

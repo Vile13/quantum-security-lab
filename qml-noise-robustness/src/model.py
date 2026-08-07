@@ -42,8 +42,13 @@ N_QUBITS = 2
 WEIGHTS_PER_LAYER = 6  # per layer: 2 qubits x (scale, bias, phase)
 
 
-def build_circuit(layers: int) -> tuple[QuantumCircuit, list[Parameter], list[Parameter]]:
-    """Return the re-uploading circuit plus its feature and weight parameters."""
+def build_unitary(layers: int) -> tuple[QuantumCircuit, list[Parameter], list[Parameter]]:
+    """Return the re-uploading circuit *without* measurement.
+
+    Kept separate from the measured circuit because zero-noise extrapolation
+    folds the unitary part and appends the measurement afterwards; folding a
+    circuit that already contains measurements is not meaningful.
+    """
     x = ParameterVector("x", N_QUBITS)
     w = ParameterVector("w", layers * WEIGHTS_PER_LAYER)
     circuit = QuantumCircuit(N_QUBITS)
@@ -58,8 +63,41 @@ def build_circuit(layers: int) -> tuple[QuantumCircuit, list[Parameter], list[Pa
             circuit.rz(w[k], qubit)
             k += 1
         circuit.cx(0, 1)
-    circuit.measure_all()
     return circuit, list(x), list(w)
+
+
+def fold_global(unitary: QuantumCircuit, scale: int) -> QuantumCircuit:
+    """Amplify noise by repeating the circuit as ``U (U^dag U)^k``.
+
+    ``scale`` must be an odd positive integer; ``scale = 2k+1`` multiplies the
+    gate count -- and therefore the accumulated gate error -- by that factor
+    while leaving the ideal unitary unchanged. This is the noise dial that
+    zero-noise extrapolation extrapolates back from.
+
+    Barriers separate the repetitions. Without them the transpiler recognises
+    ``U^dag U`` as the identity and cancels it, which would leave the folded
+    circuit no noisier than the original and produce a mitigation that appears
+    to do nothing for reasons that have nothing to do with mitigation.
+    """
+    if scale < 1 or scale % 2 == 0:
+        raise ValueError(f"fold scale must be an odd positive integer, got {scale}")
+    folded = unitary.copy()
+    for _ in range((scale - 1) // 2):
+        folded.barrier()
+        folded.compose(unitary.inverse(), inplace=True)
+        folded.barrier()
+        folded.compose(unitary, inplace=True)
+    return folded
+
+
+def build_circuit(
+    layers: int, fold_scale: int = 1
+) -> tuple[QuantumCircuit, list[Parameter], list[Parameter]]:
+    """Return the measured circuit at the given noise-amplification scale."""
+    unitary, feature_params, weight_params = build_unitary(layers)
+    circuit = fold_global(unitary, fold_scale)
+    circuit.measure_all()
+    return circuit, feature_params, weight_params
 
 
 class VariationalClassifier:
@@ -77,12 +115,14 @@ class VariationalClassifier:
         noise_model: NoiseModel | None = None,
         shots: int = 1024,
         seed: int = 42,
+        fold_scale: int = 1,
     ) -> None:
         self.layers = layers
         self.shots = shots
         self.seed = seed
+        self.fold_scale = fold_scale
 
-        circuit, feature_params, weight_params = build_circuit(layers)
+        circuit, feature_params, weight_params = build_circuit(layers, fold_scale)
         self.n_weights = len(weight_params)
 
         self._backend = AerSimulator(noise_model=noise_model)
@@ -126,6 +166,34 @@ class VariationalClassifier:
         for column, (is_feature, index) in enumerate(self._layout):
             values[:, column] = x[:, index] if is_feature else weights[index]
         return values
+
+    def predict_distribution(
+        self, x: np.ndarray, weights: np.ndarray, shots: int | None = None
+    ) -> np.ndarray:
+        """Return the full ``(n_samples, 2**n_qubits)`` outcome distribution.
+
+        Readout mitigation operates on the joint distribution -- a calibration
+        matrix maps prepared basis states to measured ones -- so the marginal
+        that ``predict_proba`` returns is not enough to correct.
+        """
+        values = self._bind(x, weights)
+        job = self._sampler.run([(self._circuit, values)], shots=shots or self.shots)
+        raw = job.result()[0].data.meas.array  # (n_samples, shots, n_bytes), little-endian
+        outcomes = raw[..., -1].astype(int)  # 2 qubits fit in the last byte
+        n_states = 2**N_QUBITS
+        counts = np.stack([
+            np.bincount(sample, minlength=n_states)[:n_states] for sample in outcomes
+        ])
+        return counts / counts.sum(axis=1, keepdims=True)
+
+    @staticmethod
+    def marginal_from_distribution(distribution: np.ndarray) -> np.ndarray:
+        """P(qubit 0 = 1) from a joint distribution over basis states.
+
+        Little-endian: qubit 0 is the least significant bit, so the odd indices
+        are exactly the states in which it reads 1.
+        """
+        return distribution[:, 1::2].sum(axis=1)
 
     def predict_proba(
         self, x: np.ndarray, weights: np.ndarray, shots: int | None = None

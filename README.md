@@ -41,7 +41,7 @@ All experiments run against local simulators or explicitly self-owned test setup
 ```
 quantum-security-lab/
 ├── qml-noise-robustness/     # module 1 — see its own README
-│   ├── src/                  #   data, model, noise models, sweep, plots
+│   ├── src/                  #   data, model, noise models, mitigation, sweep, plots
 │   ├── tests/                #   invariants that would otherwise fail silently
 │   ├── results/              #   committed results and figures
 │   └── run_experiment.py     #   entry point
@@ -63,6 +63,14 @@ confidence has already eroded substantially.
 Running it across seeds also **retracted a v1 claim**: the apparent optimum at
 three layers was one draw from a wide distribution, and depth differences in
 accuracy turned out not to be resolvable at this sample size at all.
+
+Adding mitigation (readout calibration and zero-noise extrapolation) recovers
+**85% of that shift** on the realistic device model, and each technique corrects
+only its own mechanism — ZNE removes exactly −0.0% ± 0.0 of a pure measurement
+error, across all 32 runs. That zero is what separates a real correction from a
+technique that merely smooths outputs. It also **retracted a v2 recommendation**:
+readout calibration, dismissed there as the least useful mitigation, turns out
+to be the best one per unit of cost.
 [Details, method and limitations →](./qml-noise-robustness)
 
 ## Roadmap
@@ -70,7 +78,7 @@ accuracy turned out not to be resolvable at this sample size at all.
 - [x] `qml-noise-robustness` — baseline model, noise sweep, results writeup
 - [x] CI (ruff lint + pytest on Python 3.10 and 3.12) via GitHub Actions
 - [x] `qml-noise-robustness` v2 — 8-seed sweep with error bars, depth-scaling tested across seeds
-- [ ] `qml-noise-robustness` v3 — mitigation comparison (readout calibration, zero-noise extrapolation)
+- [x] `qml-noise-robustness` v3 — mitigation comparison (readout calibration, zero-noise extrapolation, both)
 - [ ] `qml-adversarial-attacks` — perturbation attacks on encoded inputs, comparison to classical adversarial robustness
 - [ ] Architecture diagram + short demo
 - [ ] CI (linting, unit tests) via GitHub Actions
