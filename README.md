@@ -21,10 +21,63 @@ Each module follows the same structure:
 
 | Module | Status | Question |
 |---|---|---|
-| [`qml-noise-robustness`](./qml-noise-robustness) | ✅ v1 results | How does classification accuracy degrade under realistic Qiskit Aer noise models (depolarizing, amplitude damping, thermal relaxation, readout error), and does circuit depth trade off expressibility against noise resilience? |
+| [`qml-noise-robustness`](./qml-noise-robustness) | ✅ v3 results | How does classification accuracy degrade under realistic Qiskit Aer noise models (depolarizing, amplitude damping, thermal relaxation, readout error), and does circuit depth trade off expressibility against noise resilience? |
 | [`qml-adversarial-attacks`](./qml-adversarial-attacks) | ✅ results | Can small, targeted perturbations to classical input data flip QML classifier decisions, and how does this compare to classical adversarial robustness? |
 | `circuit-parameter-tampering` | 📋 planned (roadmap) | What happens if variational parameters are tampered with post-training (supply-chain analogy for quantum models)? |
 | `quantum-artificial-life` | 💡 idea (roadmap) | Emergent behavior in evolutionary/quantum artificial life systems — exploratory. |
+
+## Architecture
+
+Every module measures the same pipeline. What distinguishes them is **where
+they intervene in it** — which is also why their findings turned out to be
+independent of each other rather than two views of one effect.
+
+```mermaid
+flowchart TB
+    D["make_moons<br/>160 samples, 2 features"]
+    S["scale into [0, pi]<br/>range fitted on the train split only"]
+    C["data re-uploading circuit<br/>2 qubits, L layers<br/>RY(w_a*x + w_b), RZ(w_c), CX"]
+    M["measure qubit 0"]
+    P["P(q0 = 1)"]
+    L["label at threshold 0.5"]
+
+    D --> S --> C --> M --> P --> L
+
+    ADV["<b>module 2</b><br/>adversarial perturbation<br/>FGSM / PGD, L-inf budget<br/>gradient by parameter shift"]
+    NOISE["<b>module 1</b><br/>device noise model<br/>depolarizing, amplitude damping,<br/>thermal relaxation, readout"]
+    MIT["<b>module 1</b><br/>mitigation<br/>readout calibration, ZNE"]
+
+    ADV -. "perturbs the encoded input" .-> S
+    NOISE -. "attaches to gates and measurement" .-> C
+    MIT -. "corrects the outcome distribution" .-> M
+
+    REF["<b>module 2</b><br/>classical reference<br/>RBF-SVM, analytic gradient"]
+    ADV -. "same attacks, same budgets" .-> REF
+
+    classDef shared fill:#e8eef7,stroke:#4a6fa5,color:#1a2733
+    classDef mod1 fill:#fdf0e3,stroke:#c47f39,color:#33251a
+    classDef mod2 fill:#e9f5ec,stroke:#4a8f63,color:#1a2b20
+    class D,S,C,M,P,L shared
+    class NOISE,MIT mod1
+    class ADV,REF mod2
+```
+
+| Module | Intervenes at | Measures |
+|---|---|---|
+| `qml-noise-robustness` | the circuit and the measurement | accuracy drop, and probability shift against the noiseless run of the same seed |
+| `qml-adversarial-attacks` | the encoded input | flip rate among initially correct samples, against a random control of equal magnitude |
+
+The shared stages live in [`qml_lab/`](./qml_lab); each module owns only its own
+intervention, sweep and plots. The rule for putting something in `qml_lab/` is
+that a second module already needs it — code moved in anticipation of reuse
+tends to acquire parameters for situations that never arrive.
+
+**Why the two findings are independent.** Module 1 showed that device noise
+moves `P(q0 = 1)` substantially — 0.039 on the composite device model. Module 2
+found that this movement neither protects against nor assists an adversarial
+perturbation of the input. The diagram is the reason: noise enters after the
+encoding, in directions unrelated to the input-space direction an attacker
+searches. A robustness argument built on either stage alone is incomplete.
 
 ## Tooling
 
