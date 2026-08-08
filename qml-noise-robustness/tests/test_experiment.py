@@ -14,10 +14,10 @@ import json
 
 import numpy as np
 import pytest
+from noise_robustness import experiment
+from noise_robustness.plots import plot_depth_tradeoff, plot_mitigation, plot_noise_sweeps
 
-from src import experiment
-from src.noise_models import depolarizing, device_like, ideal, readout
-from src.plots import plot_depth_tradeoff, plot_mitigation, plot_noise_sweeps
+from qml_lab.noise_models import depolarizing, device_like, ideal, readout
 
 
 @pytest.fixture
@@ -65,14 +65,23 @@ def test_full_sweep_runs_and_writes_expected_artifacts(tmp_path, fast_sweep):
         assert row["test_accuracy"]["std"] >= 0.0
 
 
-def test_written_results_are_order_independent(tmp_path, fast_sweep):
-    """Workers finish in nondeterministic order; the files must not."""
+def test_written_results_are_ordered_independently_of_seed_order(tmp_path, fast_sweep):
+    """Workers finish in nondeterministic order; the row ordering must not.
+
+    Only the ordering is asserted, not the values. Training is not bit-exact
+    between runs (see README §5.1), so comparing the file contents here would
+    produce a test that fails a few times a year for reasons unrelated to the
+    property being checked.
+    """
     first = experiment.run(tmp_path / "a", seeds=SEEDS, workers=1, verbose=False)
     second = experiment.run(tmp_path / "b", seeds=list(reversed(SEEDS)), workers=1, verbose=False)
-    assert [r["seed"] for r in first["per_seed"]["training"]] == \
-           [r["seed"] for r in second["per_seed"]["training"]]
-    assert (tmp_path / "a" / "results.csv").read_text() == \
-           (tmp_path / "b" / "results.csv").read_text()
+    for section, keys in (
+        ("training", ("seed", "layers")),
+        ("evaluation", ("seed", "layers", "mechanism", "strength")),
+        ("mitigation", ("seed", "layers", "label", "strategy")),
+    ):
+        assert [tuple(r[k] for k in keys) for r in first["per_seed"][section]] == \
+               [tuple(r[k] for k in keys) for r in second["per_seed"][section]]
 
 
 def test_ideal_condition_is_its_own_baseline(tmp_path, fast_sweep):

@@ -11,9 +11,9 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from src.data import ANGLE_MAX, ANGLE_MIN, load_moons
-from src.model import WEIGHTS_PER_LAYER, VariationalClassifier, build_circuit, log_loss
-from src.noise_models import all_conditions, depolarizing, device_like, ideal
+from qml_lab.data import ANGLE_MAX, ANGLE_MIN, load_moons
+from qml_lab.model import WEIGHTS_PER_LAYER, VariationalClassifier, build_circuit, log_loss
+from qml_lab.noise_models import all_conditions, depolarizing, device_like, ideal
 
 
 def test_training_features_are_scaled_into_angle_range():

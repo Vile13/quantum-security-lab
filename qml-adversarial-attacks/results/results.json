@@ -1,0 +1,6060 @@
+{
+  "config": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "layers": 3,
+    "epsilons": [
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "attacks": [
+      "random",
+      "fgsm",
+      "pgd"
+    ],
+    "models": [
+      "quantum",
+      "quantum_noisy",
+      "classical"
+    ],
+    "eval_shots": 4096,
+    "gradient_shots": 4096,
+    "seconds": 1332.9570015129866
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.012987012987012988,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05194805194805195,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.11688311688311688,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.15584415584415584,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2857142857142857,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.012987012987012988,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.049583333333333306
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05194805194805195,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.11688311688311688,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.1975
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.15584415584415584,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2924999999999999
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2857142857142857,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.38499999999999995
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.012987012987012988,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.03896103896103896,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.05194805194805195,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.11688311688311688,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.17105263157894737,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.34210526315789475,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.4625,
+      "flip_rate": 0.5131578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.09750000000000006
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.17105263157894737,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.19250000000000003
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.6125,
+      "flip_rate": 0.35526315789473684,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.28374999999999995
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.4375,
+      "flip_rate": 0.5394736842105263,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.36
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.15789473684210525,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.775,
+      "flip_rate": 0.19736842105263158,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.15789473684210525,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.34210526315789475,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.45,
+      "flip_rate": 0.5263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.09791666666666672
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.15789473684210525,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.19333333333333336
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.6125,
+      "flip_rate": 0.35526315789473684,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.28374999999999995
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.425,
+      "flip_rate": 0.5526315789473685,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.36499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.15789473684210525,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 42,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.775,
+      "flip_rate": 0.19736842105263158,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.04225352112676056,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.09859154929577464,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.16901408450704225,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.65,
+      "flip_rate": 0.2676056338028169,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.024895833333333277
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.04225352112676056,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.09875000000000005
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.09859154929577464,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.1941666666666667
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.16901408450704225,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2899999999999999
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.65,
+      "flip_rate": 0.2676056338028169,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.3833333333333333
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.028169014084507043,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.028169014084507043,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.028169014084507043,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.08450704225352113,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.11267605633802817,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.015625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.675,
+      "flip_rate": 0.15625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.024895833333333277
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.04937499999999997
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.015625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.09750000000000006
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.19250000000000006
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.2874999999999999
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.675,
+      "flip_rate": 0.15625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.37666666666666665
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.0625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.046875,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.046875,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.775,
+      "flip_rate": 0.03125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.140625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.024895833333333277
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.0495833333333333
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.775,
+      "flip_rate": 0.03125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.09791666666666672
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.19250000000000006
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.078125,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.2875
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.140625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.37333333333333335
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.0,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.0625,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.046875,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 43,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.046875,
+      "n_correct_before": 64,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04999999999999996
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.13157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.19736842105263158,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.675,
+      "flip_rate": 0.2894736842105263,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.024895833333333277
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04916666666666662
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.09875000000000005
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.13157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.19083333333333338
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.19736842105263158,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.27749999999999997
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.675,
+      "flip_rate": 0.2894736842105263,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.3666666666666666
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05263157894736842,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.15789473684210525,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.07792207792207792,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.2077922077922078,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.5875,
+      "flip_rate": 0.38961038961038963,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024791666666666608
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.04895833333333329
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.09625000000000004
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.07792207792207792,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.1866666666666667
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.75,
+      "flip_rate": 0.22077922077922077,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.27249999999999996
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.5875,
+      "flip_rate": 0.38961038961038963,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.3583333333333333
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.975,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.06493506493506493,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.18181818181818182,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05194805194805195,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.2077922077922078,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.5875,
+      "flip_rate": 0.38961038961038963,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024687499999999942
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.04937499999999996
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.0966666666666667
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.05194805194805195,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.1891666666666667
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.2077922077922078,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.27375
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.575,
+      "flip_rate": 0.4025974025974026,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.36
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.975,
+      "flip_rate": 0.0,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.025974025974025976,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.06493506493506493,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 44,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9625,
+      "adversarial_accuracy": 0.7875,
+      "flip_rate": 0.18181818181818182,
+      "n_correct_before": 77,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.14473684210526316,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7,
+      "flip_rate": 0.2631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.6375,
+      "flip_rate": 0.32894736842105265,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.024791666666666608
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.049374999999999974
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.09875000000000005
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.14473684210526316,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.19583333333333336
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.7,
+      "flip_rate": 0.2631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.28374999999999995
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.6375,
+      "flip_rate": 0.32894736842105265,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.3716666666666666
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.0,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.013157894736842105,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.02631578947368421,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.07894736842105263,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.95,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.09210526315789473,
+      "n_correct_before": 76,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.75,
+      "flip_rate": 0.16666666666666666,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.20833333333333334,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.024895833333333277
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049583333333333306
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.09875000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.19333333333333336
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.75,
+      "flip_rate": 0.16666666666666666,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.28374999999999995
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.20833333333333334,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.3733333333333333
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.05555555555555555,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.024999999999999942
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.05555555555555555,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1527777777777778,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.20833333333333334,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.024791666666666608
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049583333333333306
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.09875000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.05555555555555555,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.195
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1527777777777778,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.28374999999999995
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.20833333333333334,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.3733333333333333
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 45,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.05555555555555555,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0273972602739726,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.0410958904109589,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.0821917808219178,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.2054794520547945,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.3150684931506849,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0273972602739726,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.0410958904109589,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.09916666666666671
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.0821917808219178,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.19583333333333336
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.2054794520547945,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2925
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.6125,
+      "flip_rate": 0.3287671232876712,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.3866666666666666
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0273972602739726,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0273972602739726,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0273972602739726,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.1095890410958904,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.14084507042253522,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.18309859154929578,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02468749999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.049374999999999974
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.09833333333333338
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.195
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.14084507042253522,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2925
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.18309859154929578,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.3833333333333333
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.04225352112676056,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.04225352112676056,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.14084507042253522,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.18309859154929578,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02468749999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.04916666666666664
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.09791666666666672
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.19583333333333336
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.14084507042253522,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2937499999999999
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.18309859154929578,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.3833333333333333
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.028169014084507043,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.049999999999999975
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.014084507042253521,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.04225352112676056,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.056338028169014086,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 46,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.8875,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.07042253521126761,
+      "n_correct_before": 71,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0136986301369863,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.0958904109589041,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.2191780821917808,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.3150684931506849,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0136986301369863,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.09916666666666671
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.0958904109589041,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.195
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.7125,
+      "flip_rate": 0.2191780821917808,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.28625
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.3150684931506849,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.38
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0136986301369863,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.825,
+      "flip_rate": 0.1506849315068493,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.1111111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1527777777777778,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2361111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.09958333333333338
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.1111111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1527777777777778,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29874999999999996
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2361111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.3983333333333333
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.06944444444444445,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.1111111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.75,
+      "flip_rate": 0.16666666666666666,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2361111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04979166666666664
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.027777777777777776,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.1111111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.1991666666666667
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.75,
+      "flip_rate": 0.16666666666666666,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29874999999999996
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.6875,
+      "flip_rate": 0.2361111111111111,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.02499999999999994
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.0,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.041666666666666664,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013888888888888888,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 47,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.06944444444444445,
+      "n_correct_before": 72,
+      "mean_perturbation": 0.39999999999999997
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.02531645569620253,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.06329113924050633,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.25316455696202533,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.5,
+      "flip_rate": 0.4936708860759494,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.024895833333333266
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.04979166666666662
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9625,
+      "flip_rate": 0.02531645569620253,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.09875000000000007
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.06329113924050633,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.19416666666666674
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.25316455696202533,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.29124999999999995
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.5,
+      "flip_rate": 0.4936708860759494,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.3783333333333333
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9875,
+      "flip_rate": 0.0,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.95,
+      "flip_rate": 0.0379746835443038,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.08860759493670886,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9875,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.13924050632911392,
+      "n_correct_before": 79,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.04999999999999995
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.0410958904109589,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.1095890410958904,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1643835616438356,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.04999999999999995
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.09875000000000007
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.0410958904109589,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.19416666666666674
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.1095890410958904,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.2912499999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.7625,
+      "flip_rate": 0.1643835616438356,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.3833333333333333
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0410958904109589,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.0547945205479452,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9125,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.0821917808219178,
+      "n_correct_before": 73,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.04999999999999995
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.05405405405405406,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.2000000000000001
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.12162162162162163,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.20270270270270271,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.049791666666666616
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.09916666666666674
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.05405405405405406,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.1958333333333334
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.12162162162162163,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.2899999999999999
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.20270270270270271,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.38166666666666665
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.024999999999999932
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013513513513513514,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.049999999999999954
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.0,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.10000000000000006
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.02702702702702703,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.8875,
+      "flip_rate": 0.06756756756756757,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 48,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.925,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.10810810810810811,
+      "n_correct_before": 74,
+      "mean_perturbation": 0.3999999999999999
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.13333333333333333,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.21333333333333335,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.625,
+      "flip_rate": 0.3333333333333333,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.02479166666666661
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04916666666666663
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.09708333333333338
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.13333333333333333,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.19083333333333335
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.21333333333333335,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.285
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.6125,
+      "flip_rate": 0.3466666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.37666666666666665
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9,
+      "flip_rate": 0.04,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8625,
+      "flip_rate": 0.08,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.09333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.14666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.21333333333333335,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04937499999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.09750000000000004
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.09333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.19250000000000006
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8,
+      "flip_rate": 0.14666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.2812499999999999
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.21333333333333335,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.36499999999999994
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9375,
+      "flip_rate": 0.0,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.08,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.12,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.09333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.20000000000000004
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.13333333333333333,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.7375,
+      "flip_rate": 0.21333333333333335,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.0495833333333333
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.9125,
+      "flip_rate": 0.02666666666666667,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.09750000000000004
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.85,
+      "flip_rate": 0.09333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.19250000000000006
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8125,
+      "flip_rate": 0.13333333333333333,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.27749999999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.725,
+      "flip_rate": 0.22666666666666666,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.3683333333333333
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.024999999999999946
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.04999999999999997
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.10000000000000005
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.925,
+      "flip_rate": 0.013333333333333334,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.2
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.875,
+      "flip_rate": 0.08,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.29999999999999993
+    },
+    {
+      "seed": 49,
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "clean_accuracy": 0.9375,
+      "adversarial_accuracy": 0.8375,
+      "flip_rate": 0.12,
+      "n_correct_before": 75,
+      "mean_perturbation": 0.4
+    }
+  ],
+  "aggregate": [
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0034966744913928014,
+        "std": 0.006474794130220152,
+        "sem": 0.0022891854181327615,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.01032920476072811,
+        "std": 0.014519098190947924,
+        "sem": 0.005133276393766305,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9046875000000001,
+        "std": 0.045775802637887844,
+        "sem": 0.016184190229753773,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.0068775224446091755,
+        "std": 0.007357246008975339,
+        "sem": 0.0026011792719020624,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9109375000000001,
+        "std": 0.04929752058384159,
+        "sem": 0.017429305550258897,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.03493187705738923,
+        "std": 0.020623204666242328,
+        "sem": 0.007291403934648999,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.89375,
+        "std": 0.0438137290942332,
+        "sem": 0.015490492475801313,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.06628522436732173,
+        "std": 0.040140569786659606,
+        "sem": 0.014191834548419427,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.86875,
+        "std": 0.03779644730092273,
+        "sem": 0.01336306209562122,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "random",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.10295948986299985,
+        "std": 0.05785194278529248,
+        "sem": 0.02045375052414824,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8265625000000001,
+        "std": 0.03499840557592792,
+        "sem": 0.012373804956727854,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0034966744913928014,
+        "std": 0.006474794130220152,
+        "sem": 0.0022891854181327615,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.903125,
+        "std": 0.05164698165706988,
+        "sem": 0.018259965478765672,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.015492545918787579,
+        "std": 0.020387908983005534,
+        "sem": 0.00720821434804867,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8921874999999999,
+        "std": 0.053006696005585656,
+        "sem": 0.01874069709692175,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.029098856914078836,
+        "std": 0.018296058782352655,
+        "sem": 0.006468633616994624,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8796875,
+        "std": 0.04815224182587082,
+        "sem": 0.01702438836220388,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.08383059239901366,
+        "std": 0.04287784927347353,
+        "sem": 0.015159608991983906,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8296875,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.16807096169745492,
+        "std": 0.08001015387301454,
+        "sem": 0.028287861183693842,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.7515625,
+        "std": 0.05686665951403964,
+        "sem": 0.02010540028290196,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.2580347769147676,
+        "std": 0.1265448365422522,
+        "sem": 0.044740356021584875,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.66875,
+        "std": 0.09865162369237951,
+        "sem": 0.03487861604397251,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0034966744913928014,
+        "std": 0.006474794130220152,
+        "sem": 0.0022891854181327615,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.903125,
+        "std": 0.05164698165706988,
+        "sem": 0.018259965478765672,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.015492545918787579,
+        "std": 0.020387908983005534,
+        "sem": 0.00720821434804867,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8921874999999999,
+        "std": 0.053006696005585656,
+        "sem": 0.01874069709692175,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.029098856914078836,
+        "std": 0.018296058782352655,
+        "sem": 0.006468633616994624,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8796875,
+        "std": 0.04815224182587082,
+        "sem": 0.01702438836220388,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.08383059239901366,
+        "std": 0.04287784927347353,
+        "sem": 0.015159608991983906,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8296875,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.17133907516293678,
+        "std": 0.08508759516013667,
+        "sem": 0.030083007766294148,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.7484375000000001,
+        "std": 0.06066502728685024,
+        "sem": 0.021448326087699372,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.2613242505989781,
+        "std": 0.13423255820944216,
+        "sem": 0.047458376082957256,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.665625,
+        "std": 0.10622373624975325,
+        "sem": 0.0375557621125859,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.90625,
+        "std": 0.05044445318509118,
+        "sem": 0.017834807460212654,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.005163341158059468,
+        "std": 0.007129131540506188,
+        "sem": 0.0025205286281314116,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.049972090424841846,
+        "sem": 0.017667802004736503,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.0085217194585245,
+        "std": 0.01032375038040442,
+        "sem": 0.003649996950630582,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.909375,
+        "std": 0.04265203897320069,
+        "sem": 0.015079772994691558,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.0068080780001647315,
+        "std": 0.007283868050348065,
+        "sem": 0.0025752362458345765,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9109375,
+        "std": 0.04838346640566973,
+        "sem": 0.01710613859638029,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.03317326913439775,
+        "std": 0.02062233869827675,
+        "sem": 0.007291097768738624,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8953125,
+        "std": 0.04378187614266237,
+        "sem": 0.015479230756773042,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.06614574413366342,
+        "std": 0.0421067731576349,
+        "sem": 0.014886992416823666,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.871875,
+        "std": 0.041592195353043274,
+        "sem": 0.014705061689286253,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "random",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.10619903077377364,
+        "std": 0.057245317359023835,
+        "sem": 0.020239276047870867,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.825,
+        "std": 0.03406925719346234,
+        "sem": 0.012045301395742893,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.006852530347248658,
+        "std": 0.00732910071631448,
+        "sem": 0.0025912284082525755,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9015624999999999,
+        "std": 0.050637674780175834,
+        "sem": 0.017903121610290673,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.015423694172304254,
+        "std": 0.018961108760736343,
+        "sem": 0.006703764291766161,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.89375,
+        "std": 0.052184425700723056,
+        "sem": 0.01844998064265341,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.031005059992156914,
+        "std": 0.01586996901724228,
+        "sem": 0.005610881354656213,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8796875,
+        "std": 0.05172795424139639,
+        "sem": 0.018288593610499407,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.08405554725693486,
+        "std": 0.03632112245185149,
+        "sem": 0.012841455993005575,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.83125,
+        "std": 0.05345224838248485,
+        "sem": 0.01889822365046135,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.16790836759650463,
+        "std": 0.07954973888758658,
+        "sem": 0.028125079904515835,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.753125,
+        "std": 0.058534940725299155,
+        "sem": 0.020695226761605817,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.2625162813892312,
+        "std": 0.12902790296264002,
+        "sem": 0.04561825257358129,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.665625,
+        "std": 0.09972059179814081,
+        "sem": 0.035256553342200486,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.006852530347248658,
+        "std": 0.00732910071631448,
+        "sem": 0.0025912284082525755,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9015624999999999,
+        "std": 0.050637674780175834,
+        "sem": 0.017903121610290673,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.015423694172304254,
+        "std": 0.018961108760736343,
+        "sem": 0.006703764291766161,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.89375,
+        "std": 0.052184425700723056,
+        "sem": 0.01844998064265341,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.031005059992156914,
+        "std": 0.01586996901724228,
+        "sem": 0.005610881354656213,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8796875,
+        "std": 0.05172795424139639,
+        "sem": 0.018288593610499407,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.08405554725693486,
+        "std": 0.03632112245185149,
+        "sem": 0.012841455993005575,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.83125,
+        "std": 0.05345224838248485,
+        "sem": 0.01889822365046135,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.1695531044386099,
+        "std": 0.08369395305841816,
+        "sem": 0.029590280875958032,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.7515625,
+        "std": 0.06247767458403497,
+        "sem": 0.02208919368556877,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "quantum_noisy",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.2690957983634851,
+        "std": 0.13789427830975667,
+        "sem": 0.048752989639826994,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.659375,
+        "std": 0.10768464209374123,
+        "sem": 0.03807227032706538,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9078125,
+        "std": 0.05085760056977014,
+        "sem": 0.01798087711888064,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0,
+        "std": 0.0,
+        "sem": 0.0,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.940625,
+        "std": 0.03186887195995493,
+        "sem": 0.011267347735824974,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.010213897760291843,
+        "std": 0.012255064641562086,
+        "sem": 0.004332819655964018,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9328124999999999,
+        "std": 0.03716367033619182,
+        "sem": 0.013139341654251287,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.018505743501668948,
+        "std": 0.01007212649452965,
+        "sem": 0.0035610344726253024,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9312499999999999,
+        "std": 0.03720119045714226,
+        "sem": 0.013152607020228784,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.03165767871155867,
+        "std": 0.01225754701687245,
+        "sem": 0.004333697308171723,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9249999999999999,
+        "std": 0.025877458475338268,
+        "sem": 0.009149063183892492,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.06327883470032417,
+        "std": 0.017989313697371428,
+        "sem": 0.00636018285215169,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.89375,
+        "std": 0.02988071523335986,
+        "sem": 0.010564428184106463,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "random",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.11988420651912483,
+        "std": 0.027509804591383732,
+        "sem": 0.009726184687842128,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8421875,
+        "std": 0.023085149060442678,
+        "sem": 0.008161832722670636,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0033839400036583134,
+        "std": 0.006272701005846808,
+        "sem": 0.0022177347087949774,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.934375,
+        "std": 0.03390506704651344,
+        "sem": 0.0119872514125871,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.018621570039845374,
+        "std": 0.012807406398850413,
+        "sem": 0.0045281019570195535,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9203125000000001,
+        "std": 0.04115383813032685,
+        "sem": 0.014550079006903811,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.03871472558645239,
+        "std": 0.01918440754255523,
+        "sem": 0.006782712333193576,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9015624999999999,
+        "std": 0.04454006021870329,
+        "sem": 0.01574728930755114,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.10831214000090467,
+        "std": 0.028095698496692065,
+        "sem": 0.009933329464591823,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8359375,
+        "std": 0.039209544665261595,
+        "sem": 0.013862667460021644,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.20956749758532572,
+        "std": 0.036985490307799226,
+        "sem": 0.01307634550107708,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.7406250000000001,
+        "std": 0.034557147286363624,
+        "sem": 0.012217796592325008,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "fgsm",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.3286102722324168,
+        "std": 0.07043486437339427,
+        "sem": 0.024902485115190928,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.628125,
+        "std": 0.05698919070440339,
+        "sem": 0.020148721600708498,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.025,
+      "flip_rate": {
+        "mean": 0.0033839400036583134,
+        "std": 0.006272701005846808,
+        "sem": 0.0022177347087949774,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.934375,
+        "std": 0.03390506704651344,
+        "sem": 0.0119872514125871,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.05,
+      "flip_rate": {
+        "mean": 0.018621570039845374,
+        "std": 0.012807406398850413,
+        "sem": 0.0045281019570195535,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9203125000000001,
+        "std": 0.04115383813032685,
+        "sem": 0.014550079006903811,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.1,
+      "flip_rate": {
+        "mean": 0.03871472558645239,
+        "std": 0.01918440754255523,
+        "sem": 0.006782712333193576,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.9015624999999999,
+        "std": 0.04454006021870329,
+        "sem": 0.01574728930755114,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.2,
+      "flip_rate": {
+        "mean": 0.10831214000090467,
+        "std": 0.028095698496692065,
+        "sem": 0.009933329464591823,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.8359375,
+        "std": 0.039209544665261595,
+        "sem": 0.013862667460021644,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.3,
+      "flip_rate": {
+        "mean": 0.20956749758532572,
+        "std": 0.036985490307799226,
+        "sem": 0.01307634550107708,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.7406250000000001,
+        "std": 0.034557147286363624,
+        "sem": 0.012217796592325008,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    },
+    {
+      "model": "classical",
+      "attack": "pgd",
+      "epsilon": 0.4,
+      "flip_rate": {
+        "mean": 0.33198926766620673,
+        "std": 0.07046429779815941,
+        "sem": 0.02491289140231341,
+        "n": 8
+      },
+      "adversarial_accuracy": {
+        "mean": 0.625,
+        "std": 0.057476703355111014,
+        "sem": 0.02032108335132329,
+        "n": 8
+      },
+      "clean_accuracy": {
+        "mean": 0.9375,
+        "std": 0.03204349722308281,
+        "sem": 0.01132908708968708,
+        "n": 8
+      }
+    }
+  ],
+  "gradient_advantage": {
+    "quantum/fgsm": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    },
+    "quantum/pgd": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    },
+    "quantum_noisy/fgsm": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    },
+    "quantum_noisy/pgd": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    },
+    "classical/fgsm": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    },
+    "classical/pgd": {
+      "beats_random_in": 8,
+      "of_seeds": 8
+    }
+  }
+}

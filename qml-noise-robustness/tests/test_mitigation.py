@@ -10,9 +10,7 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
-
-from src.data import load_moons
-from src.mitigation import (
+from noise_robustness.mitigation import (
     ZNE_SCALES,
     ReadoutMitigator,
     build_zne_classifiers,
@@ -20,8 +18,10 @@ from src.mitigation import (
     mitigation_variants,
     readout_mitigated_proba,
 )
-from src.model import VariationalClassifier, build_unitary, fold_global
-from src.noise_models import depolarizing, readout
+
+from qml_lab.data import load_moons
+from qml_lab.model import VariationalClassifier, build_unitary, fold_global
+from qml_lab.noise_models import depolarizing, readout
 
 # --- folding ----------------------------------------------------------------
 

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Entry point for the noise-robustness sweep.
+"""Entry point for the adversarial attack sweep.
 
-    python run_experiment.py                      # 8 seeds, parallel
-    python run_experiment.py --seeds 42 43        # fewer seeds
-    python run_experiment.py --workers 1          # serial
-    python run_experiment.py --quiet --no-plots
+    python run_experiment.py                  # 8 seeds, parallel
+    python run_experiment.py --seeds 42 43    # fewer seeds
+    python run_experiment.py --workers 1      # serial
 """
 
 from __future__ import annotations
@@ -12,10 +11,9 @@ from __future__ import annotations
 import os
 
 # Set before numpy or qiskit are imported, because both read these at import
-# time. For two-qubit circuits Aer's internal threading costs more than it
-# saves -- measured 118 ms vs 85 ms per objective evaluation on this workload --
-# and single-threaded workers then parallelise cleanly across seeds instead of
-# fighting each other for cores. setdefault so an explicit environment wins.
+# time. On two-qubit circuits Aer's internal threading costs more than it saves
+# (measured in qml-noise-robustness: 118 ms vs 85 ms per evaluation), and
+# single-threaded workers parallelise cleanly across seeds instead.
 for _threads_var in (
     "OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
     "NUMEXPR_NUM_THREADS", "RAYON_NUM_THREADS",
@@ -26,18 +24,12 @@ import argparse  # noqa: E402
 import sys  # noqa: E402
 from pathlib import Path  # noqa: E402
 
-# The shared ``qml_lab`` package lives at the repository root. Python puts this
-# script's own directory on the path but not its parent, so running
-# `python run_experiment.py` from inside the module would not find it. pytest
-# gets this from pyproject.toml; a direct invocation has to arrange it here.
+# The shared ``qml_lab`` package lives at the repository root, which Python does
+# not put on the path when this script is run from inside its own directory.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from noise_robustness.experiment import DEFAULT_SEEDS, run  # noqa: E402
-from noise_robustness.plots import (  # noqa: E402
-    plot_depth_tradeoff,
-    plot_mitigation,
-    plot_noise_sweeps,
-)
+from adversarial.experiment import DEFAULT_SEEDS, run  # noqa: E402
+from adversarial.plots import plot_flip_rates, plot_model_comparison  # noqa: E402
 
 RESULTS_DIR = Path(__file__).parent / "results"
 
@@ -57,12 +49,11 @@ def main() -> None:
 
     if not args.no_plots:
         for figure in (
-            plot_noise_sweeps(payload, args.output / "noise_sweeps.png"),
-            plot_depth_tradeoff(payload, args.output / "depth_tradeoff.png"),
-            plot_mitigation(payload, args.output / "mitigation.png"),
+            plot_flip_rates(payload, args.output / "flip_rates.png"),
+            plot_model_comparison(payload, args.output / "model_comparison.png"),
         ):
             print(f"wrote {figure}")
-    for name in ("results.json", "results.csv", "mitigation.csv"):
+    for name in ("results.json", "results.csv"):
         print(f"wrote {args.output / name}")
 
 

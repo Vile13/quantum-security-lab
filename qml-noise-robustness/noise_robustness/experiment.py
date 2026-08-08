@@ -22,22 +22,23 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize
 
-from .data import load_moons
-from .mitigation import (
-    STRATEGIES,
-    ZNE_SCALES,
-    ReadoutMitigator,
-    build_zne_classifiers,
-    mitigation_variants,
-)
-from .model import VariationalClassifier, log_loss
-from .noise_models import (
+from qml_lab.data import load_moons
+from qml_lab.model import VariationalClassifier, log_loss
+from qml_lab.noise_models import (
     NoiseCondition,
     all_conditions,
     depolarizing,
     device_like,
     readout,
     thermal_relaxation,
+)
+
+from .mitigation import (
+    STRATEGIES,
+    ZNE_SCALES,
+    ReadoutMitigator,
+    build_zne_classifiers,
+    mitigation_variants,
 )
 
 # Shots are lower during training than during evaluation: the optimiser

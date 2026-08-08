@@ -20,7 +20,7 @@ from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel
 from qiskit_aer.primitives import SamplerV2
 
-from .model import N_QUBITS, VariationalClassifier
+from qml_lab.model import N_QUBITS, VariationalClassifier
 
 # Odd scales only -- global folding produces U (U^dag U)^k, so the gate count
 # is multiplied by an odd integer. Three points is the minimum for a linear fit

@@ -119,9 +119,33 @@ python run_experiment.py
 Roughly 21 minutes on a 4-core laptop; `--workers 1` runs it serially in about
 an hour and a half, `--seeds 42 43` cuts it down for a quick look. Writes
 `results/results.json`, `results/results.csv`, `results/mitigation.csv` and
-three figures. Everything is seeded and the output is sorted before writing, so
-repeated runs with the same seeds produce byte-identical files regardless of
-worker scheduling.
+three figures. Output is sorted before writing, so worker scheduling does not
+affect file contents.
+
+### 5.1 Reproducibility is close but not bit-exact
+
+An earlier version of this file claimed repeated runs produce byte-identical
+files. **They do not**, and the claim was withdrawn after testing it rather
+than assuming it. What was measured:
+
+- The objective function *is* deterministic — 150 random weight vectors give
+  bit-identical losses across separate processes.
+- COBYLA *is* deterministic on a deterministic function — a pure NumPy
+  objective reproduces `nfev` and the optimum exactly, every run.
+- Yet COBYLA on *this* objective stops after a different number of evaluations
+  between runs (176 vs 175 observed, from an identical start with identical
+  first evaluations). Fixing `PYTHONHASHSEED` does not change it. The cause was
+  not isolated and is somewhere in the Qiskit/Aer/SciPy stack.
+
+Where a restart's trajectory diverges it can settle in a different local
+optimum, so per-seed weights and absolute numbers vary slightly between runs.
+Measured spread on a re-run of seed 42: test accuracy differs by at most 0.025
+(two test samples), and every reported mitigation reduction in §10 lands within
+1.7 percentage points of the committed value.
+
+That is smaller than the seed-to-seed spread the error bars in §7 already
+report, so the conclusions do not depend on it — but "seeded" and "bit-exact"
+are not the same claim, and only the first one is true here.
 
 The entry point pins every numeric library to a single thread before importing
 them. That is a speedup, not a restriction: on two-qubit circuits Aer's internal
@@ -263,7 +287,7 @@ across otherwise identical runs is its own failure mode.
 
 Ranked by probability shift at the strongest setting: depolarizing > thermal
 relaxation > amplitude damping > readout. The ordering reflects the error
-magnitudes chosen in `src/noise_models.py` as much as the mechanisms
+magnitudes chosen in `qml_lab/noise_models.py` as much as the mechanisms
 themselves, so read it as "at these rates", not as an intrinsic ranking.
 
 ## 8. Limitations
