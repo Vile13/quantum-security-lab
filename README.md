@@ -6,6 +6,23 @@ Research and engineering lab investigating the **security and robustness propert
 
 Part of a broader portfolio at the intersection of AI security, agent/tool security, and post-quantum cryptography.
 
+## Try it
+
+```bash
+pip install -r qml-noise-robustness/requirements.txt
+python demo.py
+```
+
+About 90 seconds. It trains a small classifier and then reproduces the lab's
+three headline results in front of you: noise moving the model's outputs while
+accuracy reports nothing, each mitigation correcting only its own mechanism,
+and a gradient attack beating random noise of the same size.
+
+The demo runs at reduced fidelity — fewer shots, one seed, a short training
+budget — so its numbers are noisier than the 8-seed measurements in the module
+READMEs, and it says so on the way past. `--quick` finishes in about ten
+seconds and is visibly noisier still.
+
 ## Motivation
 
 Quantum machine learning (QML) models are increasingly proposed for real-world deployment on noisy intermediate-scale quantum (NISQ) hardware. Unlike classical ML security, QML introduces attack surfaces that are specific to the quantum stack: device noise, transpilation, backend heterogeneity, and the encoding/measurement boundary between classical and quantum data. This lab treats these as **security and reliability properties to be measured, not assumed.**
@@ -101,6 +118,8 @@ quantum-security-lab/
 │   └── run_experiment.py     #   entry point
 ├── qml-adversarial-attacks/  # module 2 — same layout
 │   └── adversarial/          #   gradients, attacks, classical reference
+├── tests/                    # smoke test for the demo
+├── demo.py                   # 90-second tour of all three findings
 └── README.md                 # this file
 ```
 
@@ -155,7 +174,7 @@ perturbation **independent failure modes**.
 - [x] `qml-noise-robustness` v2 — 8-seed sweep with error bars, depth-scaling tested across seeds
 - [x] `qml-noise-robustness` v3 — mitigation comparison (readout calibration, zero-noise extrapolation, both)
 - [x] `qml-adversarial-attacks` — FGSM/PGD via parameter-shift gradients, classical comparison, random control
-- [ ] Architecture diagram + short demo
+- [x] Architecture diagram + short demo (`demo.py`)
 - [ ] `circuit-parameter-tampering`
 - [ ] `quantum-artificial-life`
 

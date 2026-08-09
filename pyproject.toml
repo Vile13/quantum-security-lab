@@ -31,5 +31,5 @@ known-first-party = ["src", "qml_lab"]
 # The repository root carries the shared ``qml_lab`` package; each module
 # directory carries its own ``src``. Both are on the path so a module's tests
 # can import its own code as ``src.*`` and the shared code as ``qml_lab.*``.
-testpaths = ["qml-noise-robustness/tests", "qml-adversarial-attacks/tests"]
+testpaths = ["tests", "qml-noise-robustness/tests", "qml-adversarial-attacks/tests"]
 pythonpath = [".", "qml-noise-robustness", "qml-adversarial-attacks"]
